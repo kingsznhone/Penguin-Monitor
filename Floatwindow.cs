@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
@@ -16,8 +15,7 @@ namespace Penguin_Monitor
 
     public partial class FloatWindow : Form
     {
-        delegate void SwitchAction();
-
+        delegate void SwitchAction ();
         private const uint WS_EX_LAYERED = 0x80000;
         private const int WS_EX_TRANSPARENT = 0x20;
         private const int GWL_STYLE = (-16);
@@ -63,37 +61,48 @@ namespace Penguin_Monitor
         public FloatWindow()
         {
             InitializeComponent();
-            GetNets();
+
+            if (!InitMonitor()) MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public void GetNets()
+        public void ManualScanNetwork(object sender, EventArgs e)
         {
+            if (!InitMonitor()) MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public bool InitMonitor()
+        {
+            toolStripMenuItemNets.DropDownItems.Clear();
             M = new Monitor();
-            List<ToolStripMenuItem> TSM = new List<ToolStripMenuItem>();
-            ToolStripMenuItem TSMi;
-            if (M.Nets == null) return;
+            List<ToolStripMenuItem> TSMIs = new List<ToolStripMenuItem>();
+            ToolStripMenuItem TSMI;
+            if (M.Nets == null) return false;
+
             foreach (string net in M.Nets)
             {
-                TSMi = new ToolStripMenuItem();
-                TSMi.Name = net;
-                TSMi.Text = net;
-                TSMi.Click += new EventHandler(this.SelectNets);
-                TSM.Add(TSMi);
+                TSMI = new ToolStripMenuItem();
+                TSMI.Name = net;
+                TSMI.Text = net;
+                TSMI.Click += new EventHandler(this.SelectNets);
+                TSMIs.Add(TSMI);
             }
-            TSM[0].Checked = true;
-            toolStripMenuItemNets.DropDownItems.AddRange(TSM.ToArray());
+            TSMIs[0].Checked = true;
+            toolStripMenuItemNets.Click -= new EventHandler(this.ManualScanNetwork);
+            toolStripMenuItemNets.Text = "网络";
+            toolStripMenuItemNets.DropDownItems.AddRange(TSMIs.ToArray());
             RefreshTimer.Enabled = true;
+            return true;
         }
 
         public void SelectNets(object sender, EventArgs e)
         {
-            ToolStripMenuItem i = (ToolStripMenuItem)sender;
-            foreach (ToolStripMenuItem T in toolStripMenuItemNets.DropDownItems)
+            ToolStripMenuItem ThisItem = (ToolStripMenuItem)sender;
+            foreach (ToolStripMenuItem OtherItem in toolStripMenuItemNets.DropDownItems)
             {
-                T.Checked = false;
+                OtherItem.Checked = false;
             }
-            i.Checked = true;
-            M.StartMonitor(i.Text);
+            ThisItem.Checked = true;
+            M.StartMonitor(ThisItem.Text);
         }
 
         private void DragWindow(object sender, MouseEventArgs e)
@@ -128,6 +137,8 @@ namespace Penguin_Monitor
             CPULB.Text = "CPU " + M.getCpuUtil() + "%";
 
         }
+
+
 
         private void FloatWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -173,8 +184,7 @@ namespace Penguin_Monitor
 
         private void ToolStripMenuItemHide_Click(object sender, EventArgs e)
         {
-            SwitchAction sv = SwitchVisible;
-            SwitchAction sv_altn = delegate ()
+            SwitchAction @switch = delegate ()
             {
                 bool x = this.Visible;
                 if (x) this.Hide();
@@ -185,12 +195,12 @@ namespace Penguin_Monitor
             ToolStripMenuItem i = (ToolStripMenuItem)sender;
             if (i.Checked)
             {
-                sv_altn();
+                @switch();
                 i.Checked = false;
             }
             else
             {
-                sv_altn();
+                @switch();
                 i.Checked = true;
             }
         }
@@ -200,13 +210,6 @@ namespace Penguin_Monitor
             var style = GetWindowLong(this.Handle, GWL_EXSTYLE);
             SetWindowLong(this.Handle, GWL_EXSTYLE, style | WS_EX_LAYERED | WS_EX_TRANSPARENT);
             SetLayeredWindowAttributes(this.Handle, 0, opacity, LWA_ALPHA);
-        }
-
-        public void SwitchVisible()
-        {
-            bool x = this.Visible;
-            if (x) this.Hide();
-            else   this.Show();
         }
 
         private void ToolStripMenuItemPene_Click(object sender, EventArgs e)
