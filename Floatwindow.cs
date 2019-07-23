@@ -230,5 +230,12 @@ namespace Penguin_Monitor
                 SetPenetrate(Convert.ToInt32(this.Opacity*255));
             }
         }
+
+        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            bool x = this.Visible;
+            if (x) { this.Hide(); toolStripMenuItemHide.Checked = true; }
+            else { this.Show(); toolStripMenuItemHide.Checked = false; }
+        }
     }
 }
