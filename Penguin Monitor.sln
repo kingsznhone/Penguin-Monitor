@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Penguin Monitor", "Penguin Monitor.csproj", "{8EC6DDF5-68D3-4A2C-8284-01D19FBFE336}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Penguin Monitor", "Penguin-Monitor\Penguin Monitor.csproj", "{8EC6DDF5-68D3-4A2C-8284-01D19FBFE336}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AAC410ED-3D4A-484A-9B8D-2CD536F336BC}
+		SolutionGuid = {A6E865C3-DE3E-43A0-8AFF-DB4DDDAA404D}
 	EndGlobalSection
 EndGlobal
