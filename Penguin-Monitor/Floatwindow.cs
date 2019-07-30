@@ -43,7 +43,7 @@ namespace Penguin_Monitor
         int dwFlags
         );
 
-        [DllImport("user32.dll")]//拖动无窗体的控件
+        [DllImport("user32.dll")]//Drag Form
         public static extern bool ReleaseCapture();
 
         [DllImport("user32.dll")]
@@ -62,12 +62,14 @@ namespace Penguin_Monitor
         {
             InitializeComponent();
 
-            if (!InitMonitor()) MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!InitMonitor())
+                MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void ManualScanNetwork(object sender, EventArgs e)
         {
-            if (!InitMonitor()) MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!InitMonitor())
+                MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public bool InitMonitor()
@@ -75,16 +77,16 @@ namespace Penguin_Monitor
             toolStripMenuItemNets.DropDownItems.Clear();
             M = new Monitor();
             List<ToolStripMenuItem> TSMIs = new List<ToolStripMenuItem>();
-            ToolStripMenuItem TSMI;
+            ToolStripMenuItem item;
             if (M.Nets == null) return false;
 
             foreach (string net in M.Nets)
             {
-                TSMI = new ToolStripMenuItem();
-                TSMI.Name = net;
-                TSMI.Text = net;
-                TSMI.Click += new EventHandler(this.SelectNets);
-                TSMIs.Add(TSMI);
+                item = new ToolStripMenuItem();
+                item.Name = net;
+                item.Text = net;
+                item.Click += new EventHandler(this.SelectNets);
+                TSMIs.Add(item);
             }
             TSMIs[0].Checked = true;
             toolStripMenuItemNets.Click -= new EventHandler(this.ManualScanNetwork);
@@ -97,9 +99,9 @@ namespace Penguin_Monitor
         public void SelectNets(object sender, EventArgs e)
         {
             ToolStripMenuItem ThisItem = (ToolStripMenuItem)sender;
-            foreach (ToolStripMenuItem OtherItem in toolStripMenuItemNets.DropDownItems)
+            foreach (ToolStripMenuItem OtherItems in toolStripMenuItemNets.DropDownItems)
             {
-                OtherItem.Checked = false;
+                OtherItems.Checked = false;
             }
             ThisItem.Checked = true;
             M.StartMonitor(ThisItem.Text);
@@ -171,9 +173,8 @@ namespace Penguin_Monitor
         {
             string INFO =
                 "左键拖拽，右键锁定" + Environment.NewLine +
-                "Code By:KingsZNHONE" + Environment.NewLine +
-                "部分源码来自blog.csdn.net/kunorz/article/details/81044595";
-            MessageBox.Show(INFO, "企鹅监控 v1.3", MessageBoxButtons.OK);
+                "Code By:KingsZNHONE" + Environment.NewLine;
+            MessageBox.Show(INFO, "企鹅监控 v1.3.1", MessageBoxButtons.OK);
         }
 
         private void FloatWindow_Load(object sender, EventArgs e)
@@ -184,7 +185,7 @@ namespace Penguin_Monitor
 
         private void ToolStripMenuItemHide_Click(object sender, EventArgs e)
         {
-            SwitchAction @switch = delegate ()
+            SwitchAction @switch = () =>
             {
                 bool x = this.Visible;
                 if (x) this.Hide();

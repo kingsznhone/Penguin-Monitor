@@ -2,7 +2,7 @@
 ![image](https://github.com/kingsznhone/Penguin-Monitor/blob/master/MDinfo.jpg)
 
 企鹅监控是一个超轻量级系统状态监控悬浮窗。
-
+部分源码来自 blog.csdn.net/kunorz/article/details/81044595
 
 ## 版本
 ### V1.3.1

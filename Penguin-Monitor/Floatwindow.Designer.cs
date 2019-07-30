@@ -223,7 +223,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Form1";
+            this.Text = "Penguin Monitor";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FloatWindow_FormClosed);
             this.Load += new System.EventHandler(this.FloatWindow_Load);
