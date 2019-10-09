@@ -150,23 +150,16 @@ namespace Penguin_Monitor
 
         private void ChangeOpacity_Click(object sender, EventArgs e)
         {
+            ToolStripMenuItem i = (ToolStripMenuItem)sender;
+            i.Checked = true;
+
             foreach (ToolStripMenuItem T in toolStripMenuItemOpacity.DropDownItems)
             {
                 T.Checked = false;
             }
-            ToolStripMenuItem i = (ToolStripMenuItem)sender;
-            i.Checked = true;
-
-            if (isPenetrating)
-            {
-                this.Opacity = Convert.ToDouble(i.Text);
-                SetPenetrate(Convert.ToInt32(Convert.ToDouble(i.Text) * 255));
-            }
-
-                
-            else this.Opacity = Convert.ToDouble(i.Text);
-
-
+            
+            this.Opacity = Convert.ToDouble(i.Text);
+            if (isPenetrating) SetPenetrate(Convert.ToInt32(Convert.ToDouble(i.Text) * 255)); 
         }
 
         private void ToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -187,29 +180,22 @@ namespace Penguin_Monitor
         {
             SwitchAction @switch = () =>
             {
-                bool x = this.Visible;
-                if (x) this.Hide();
-                else this.Show();
+                if (Visible) Hide();
+                else Show();
             };
-
 
             ToolStripMenuItem i = (ToolStripMenuItem)sender;
             if (i.Checked)
-            {
-                @switch();
-                i.Checked = false;
-            }
+            { @switch(); i.Checked = false;}
             else
-            {
-                @switch();
-                i.Checked = true;
-            }
+            { @switch(); i.Checked = true; }
         }
 
         public void SetPenetrate(int opacity)
         {
-            var style = GetWindowLong(this.Handle, GWL_EXSTYLE);
-            SetWindowLong(this.Handle, GWL_EXSTYLE, style | WS_EX_LAYERED | WS_EX_TRANSPARENT);
+            //opacity = 0-255
+            var STYLE = GetWindowLong(this.Handle, GWL_EXSTYLE);
+            SetWindowLong(this.Handle, GWL_EXSTYLE, STYLE | WS_EX_LAYERED | WS_EX_TRANSPARENT);
             SetLayeredWindowAttributes(this.Handle, 0, opacity, LWA_ALPHA);
         }
 
@@ -220,6 +206,7 @@ namespace Penguin_Monitor
             {
                 isPenetrating = false;
                 i.Checked = false;
+
                 //cancel penetrate
                 this.FormBorderStyle = this.FormBorderStyle;
             }
@@ -227,16 +214,16 @@ namespace Penguin_Monitor
             {
                 isPenetrating = true;
                 i.Checked = true;
-                
                 SetPenetrate(Convert.ToInt32(this.Opacity*255));
             }
         }
 
         private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
         {
-            bool x = this.Visible;
-            if (x) { this.Hide(); toolStripMenuItemHide.Checked = true; }
-            else { this.Show(); toolStripMenuItemHide.Checked = false; }
+            if (Visible)
+            { Hide(); toolStripMenuItemHide.Checked = true; }
+            else
+            { Show(); toolStripMenuItemHide.Checked = false; }
         }
     }
 }

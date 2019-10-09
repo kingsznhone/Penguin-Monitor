@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Threading;
 namespace Penguin_Monitor
 {
     static class Program
@@ -14,9 +14,15 @@ namespace Penguin_Monitor
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FloatWindow());
+            bool bCreatedNew;
+            Mutex m = new Mutex(false, "KingsPenguinMonitor", out bCreatedNew);
+            if (bCreatedNew)
+            //Create a new mutex using specific mutex name
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new FloatWindow());
+            }
         }
     }
 }
