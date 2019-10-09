@@ -150,14 +150,13 @@ namespace Penguin_Monitor
 
         private void ChangeOpacity_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem i = (ToolStripMenuItem)sender;
-            i.Checked = true;
-
             foreach (ToolStripMenuItem T in toolStripMenuItemOpacity.DropDownItems)
             {
                 T.Checked = false;
             }
-            
+            ToolStripMenuItem i = (ToolStripMenuItem)sender;
+            i.Checked = true;
+
             this.Opacity = Convert.ToDouble(i.Text);
             if (isPenetrating) SetPenetrate(Convert.ToInt32(Convert.ToDouble(i.Text) * 255)); 
         }
