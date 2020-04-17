@@ -56,7 +56,7 @@
             this.MinimizeBox = false;
             this.Name = "DonateWnd";
             this.ShowInTaskbar = false;
-            this.Text = "喜欢就打赏一点小鱼干呗";
+            this.Text = "喜欢就奖励一点小鱼干吧";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
