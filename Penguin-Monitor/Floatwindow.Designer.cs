@@ -48,6 +48,7 @@
             this.CPULB = new Penguin_Monitor.BGLabel();
             this.UploadLB = new Penguin_Monitor.BGLabel();
             this.DownloadLB = new Penguin_Monitor.BGLabel();
+            this.toolStripMenuItemDonate = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,28 +74,29 @@
             this.toolStripMenuItemNets,
             this.toolStripMenuItemOpacity,
             this.toolStripMenuItemInfo,
+            this.toolStripMenuItemDonate,
             this.exitToolStripMenuItemExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 200);
             // 
             // toolStripMenuItemPene
             // 
             this.toolStripMenuItemPene.Name = "toolStripMenuItemPene";
-            this.toolStripMenuItemPene.Size = new System.Drawing.Size(138, 24);
+            this.toolStripMenuItemPene.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItemPene.Text = "鼠标穿透";
             this.toolStripMenuItemPene.Click += new System.EventHandler(this.ToolStripMenuItemPene_Click);
             // 
             // toolStripMenuItemHide
             // 
             this.toolStripMenuItemHide.Name = "toolStripMenuItemHide";
-            this.toolStripMenuItemHide.Size = new System.Drawing.Size(138, 24);
+            this.toolStripMenuItemHide.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItemHide.Text = "隐藏";
             this.toolStripMenuItemHide.Click += new System.EventHandler(this.ToolStripMenuItemHide_Click);
             // 
             // toolStripMenuItemNets
             // 
             this.toolStripMenuItemNets.Name = "toolStripMenuItemNets";
-            this.toolStripMenuItemNets.Size = new System.Drawing.Size(138, 24);
+            this.toolStripMenuItemNets.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItemNets.Text = "扫描网络";
             this.toolStripMenuItemNets.Click += new System.EventHandler(this.ManualScanNetwork);
             // 
@@ -106,7 +108,7 @@
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.toolStripMenuItemOpacity.Name = "toolStripMenuItemOpacity";
-            this.toolStripMenuItemOpacity.Size = new System.Drawing.Size(138, 24);
+            this.toolStripMenuItemOpacity.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItemOpacity.Text = "透明度";
             // 
             // toolStripMenuItem4
@@ -142,14 +144,14 @@
             // toolStripMenuItemInfo
             // 
             this.toolStripMenuItemInfo.Name = "toolStripMenuItemInfo";
-            this.toolStripMenuItemInfo.Size = new System.Drawing.Size(138, 24);
+            this.toolStripMenuItemInfo.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItemInfo.Text = "关于";
             this.toolStripMenuItemInfo.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
             // 
             // exitToolStripMenuItemExit
             // 
             this.exitToolStripMenuItemExit.Name = "exitToolStripMenuItemExit";
-            this.exitToolStripMenuItemExit.Size = new System.Drawing.Size(138, 24);
+            this.exitToolStripMenuItemExit.Size = new System.Drawing.Size(210, 24);
             this.exitToolStripMenuItemExit.Text = "退出";
             this.exitToolStripMenuItemExit.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -205,6 +207,13 @@
             this.DownloadLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.DownloadLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
+            // toolStripMenuItemDonate
+            // 
+            this.toolStripMenuItemDonate.Name = "toolStripMenuItemDonate";
+            this.toolStripMenuItemDonate.Size = new System.Drawing.Size(210, 24);
+            this.toolStripMenuItemDonate.Text = "打赏";
+            this.toolStripMenuItemDonate.Click += new System.EventHandler(this.toolStripMenuItemDonate_Click);
+            // 
             // FloatWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
@@ -251,6 +260,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNets;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHide;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPene;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDonate;
     }
 }
 

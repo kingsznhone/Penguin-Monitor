@@ -224,5 +224,11 @@ namespace Penguin_Monitor
             else
             { Show(); toolStripMenuItemHide.Checked = false; }
         }
+
+        private void toolStripMenuItemDonate_Click(object sender, EventArgs e)
+        {
+            Form donate = new DonateWnd();
+            donate.Show();
+        }
     }
 }
