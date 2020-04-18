@@ -1,7 +1,7 @@
-# 企鹅监控
+# 企鹅悬浮窗
 ![image](https://github.com/kingsznhone/Penguin-Monitor/blob/master/MDinfo.jpg)
 
-企鹅监控是一个超轻量级系统状态监控悬浮窗。
+企鹅悬浮窗是一个超轻量级系统状态监控悬浮窗。
 
 # 版本
 ### v2.0
