@@ -42,6 +42,8 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemMod = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDonate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.RAMLB = new Penguin_Monitor.BGLabel();
@@ -72,10 +74,19 @@
             this.toolStripMenuItemHide,
             this.toolStripMenuItemNets,
             this.toolStripMenuItemOpacity,
+<<<<<<< Updated upstream
             this.toolStripMenuItemInfo,
             this.exitToolStripMenuItemExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(139, 148);
+=======
+            this.toolStripMenuItemMod,
+            this.toolStripMenuItemDonate,
+            this.toolStripMenuItemInfo,
+            this.exitToolStripMenuItemExit});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 196);
+>>>>>>> Stashed changes
             // 
             // toolStripMenuItemPene
             // 
@@ -139,12 +150,26 @@
             this.toolStripMenuItem7.Text = "1";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.ChangeOpacity_Click);
             // 
+            // toolStripMenuItemMod
+            // 
+            this.toolStripMenuItemMod.Name = "toolStripMenuItemMod";
+            this.toolStripMenuItemMod.Size = new System.Drawing.Size(138, 24);
+            this.toolStripMenuItemMod.Text = "自定义";
+            this.toolStripMenuItemMod.Click += new System.EventHandler(this.toolStripMenuItemMod_Click);
+            // 
+            // toolStripMenuItemDonate
+            // 
+            this.toolStripMenuItemDonate.Name = "toolStripMenuItemDonate";
+            this.toolStripMenuItemDonate.Size = new System.Drawing.Size(138, 24);
+            this.toolStripMenuItemDonate.Text = "打赏";
+            this.toolStripMenuItemDonate.Click += new System.EventHandler(this.toolStripMenuItemDonate_Click);
+            // 
             // toolStripMenuItemInfo
             // 
             this.toolStripMenuItemInfo.Name = "toolStripMenuItemInfo";
             this.toolStripMenuItemInfo.Size = new System.Drawing.Size(138, 24);
             this.toolStripMenuItemInfo.Text = "关于";
-            this.toolStripMenuItemInfo.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
+            this.toolStripMenuItemInfo.Click += new System.EventHandler(this.ToolStripMenuInfo_Click);
             // 
             // exitToolStripMenuItemExit
             // 
@@ -157,8 +182,8 @@
             // 
             this.RAMLB.BackColor = System.Drawing.Color.Black;
             this.RAMLB.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RAMLB.ForeColor = System.Drawing.Color.White;
-            this.RAMLB.Location = new System.Drawing.Point(120, 40);
+            this.RAMLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
+            this.RAMLB.Location = new System.Drawing.Point(120, 45);
             this.RAMLB.Name = "RAMLB";
             this.RAMLB.Size = new System.Drawing.Size(120, 40);
             this.RAMLB.TabIndex = 0;
@@ -170,8 +195,8 @@
             // 
             this.CPULB.BackColor = System.Drawing.Color.Black;
             this.CPULB.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CPULB.ForeColor = System.Drawing.Color.White;
-            this.CPULB.Location = new System.Drawing.Point(120, 0);
+            this.CPULB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
+            this.CPULB.Location = new System.Drawing.Point(120, 5);
             this.CPULB.Name = "CPULB";
             this.CPULB.Size = new System.Drawing.Size(120, 40);
             this.CPULB.TabIndex = 0;
@@ -183,8 +208,8 @@
             // 
             this.UploadLB.BackColor = System.Drawing.Color.Black;
             this.UploadLB.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.UploadLB.ForeColor = System.Drawing.Color.White;
-            this.UploadLB.Location = new System.Drawing.Point(0, 40);
+            this.UploadLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
+            this.UploadLB.Location = new System.Drawing.Point(0, 45);
             this.UploadLB.Name = "UploadLB";
             this.UploadLB.Size = new System.Drawing.Size(120, 40);
             this.UploadLB.TabIndex = 0;
@@ -196,8 +221,8 @@
             // 
             this.DownloadLB.BackColor = System.Drawing.Color.Black;
             this.DownloadLB.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.DownloadLB.ForeColor = System.Drawing.Color.White;
-            this.DownloadLB.Location = new System.Drawing.Point(0, 0);
+            this.DownloadLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
+            this.DownloadLB.Location = new System.Drawing.Point(0, 5);
             this.DownloadLB.Name = "DownloadLB";
             this.DownloadLB.Size = new System.Drawing.Size(120, 40);
             this.DownloadLB.TabIndex = 0;
@@ -209,7 +234,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(240, 80);
+            this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.ClientSize = new System.Drawing.Size(240, 85);
             this.ControlBox = false;
             this.Controls.Add(this.RAMLB);
             this.Controls.Add(this.CPULB);
@@ -228,6 +254,9 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FloatWindow_FormClosed);
             this.Load += new System.EventHandler(this.FloatWindow_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
+            this.MouseLeave += new System.EventHandler(this.FloatWindow_MouseLeave);
+            this.MouseHover += new System.EventHandler(this.FloatWindow_MouseHover);
+            this.Move += new System.EventHandler(this.FloatWindow_Move);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -251,6 +280,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNets;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHide;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPene;
+<<<<<<< Updated upstream
+=======
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMod;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDonate;
+>>>>>>> Stashed changes
     }
 }
 

@@ -15,7 +15,6 @@ namespace Penguin_Monitor
 
     public partial class FloatWindow : Form
     {
-        delegate void SwitchAction ();
         private const uint WS_EX_LAYERED = 0x80000;
         private const int WS_EX_TRANSPARENT = 0x20;
         private const int GWL_STYLE = (-16);
@@ -61,7 +60,7 @@ namespace Penguin_Monitor
         public FloatWindow()
         {
             InitializeComponent();
-
+            ReloadColor();
             if (!InitMonitor())
                 MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -130,17 +129,19 @@ namespace Penguin_Monitor
             M.refresh();
 
             RAMLB.Value = M.getRamUtil();
-            RAMLB.Text = "RAM" + M.getRamUtil() + "%";
+            RAMLB.StackValue( RAMLB.Value);
+            RAMLB.Text = "RAM " + M.getRamUtil() + "%";
+
 
             DownloadLB.Text = "↓ " + M.getDownSpeed();
             UploadLB.Text = "↑ " + M.getUpSpeed();
 
             CPULB.Value = M.getCpuUtil();
+            CPULB.StackValue(CPULB.Value);
             CPULB.Text = "CPU " + M.getCpuUtil() + "%";
 
+            this.Refresh();
         }
-
-
 
         private void FloatWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -161,33 +162,26 @@ namespace Penguin_Monitor
             if (isPenetrating) SetPenetrate(Convert.ToInt32(Convert.ToDouble(i.Text) * 255)); 
         }
 
-        private void ToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void ToolStripMenuInfo_Click(object sender, EventArgs e)
         {
-            string INFO =
-                "左键拖拽，右键锁定" + Environment.NewLine +
-                "Code By:KingsZNHONE" + Environment.NewLine;
-            MessageBox.Show(INFO, "企鹅监控 v1.3.1", MessageBoxButtons.OK);
+            Info info = new Info();
+            info.Show();
         }
 
         private void FloatWindow_Load(object sender, EventArgs e)
         {
-            this.Top = 50;
-            this.Left = Screen.PrimaryScreen.WorkingArea.Width - 500;
+            int width = Screen.PrimaryScreen.Bounds.Width;
+            this.Left = width / 2 - 120;
+            this.Top = 0;
         }
 
         private void ToolStripMenuItemHide_Click(object sender, EventArgs e)
         {
-            SwitchAction @switch = () =>
-            {
-                if (Visible) Hide();
-                else Show();
-            };
-
             ToolStripMenuItem i = (ToolStripMenuItem)sender;
             if (i.Checked)
-            { @switch(); i.Checked = false;}
+            { Show(); i.Checked = false; }
             else
-            { @switch(); i.Checked = true; }
+            { Hide(); i.Checked = true; }
         }
 
         public void SetPenetrate(int opacity)
@@ -217,6 +211,41 @@ namespace Penguin_Monitor
             }
         }
 
+        private void FloatWindow_Move(object sender, EventArgs e)
+        {
+            if (this.Top == 0)
+            {
+                this.Width = 240;
+                this.Height = 5;
+            }
+            else
+            {
+                this.Width = 240;
+                this.Height = 85;
+            }
+        }
+
+        private void FloatWindow_MouseHover(object sender, EventArgs e)
+        {
+            if (this.Top == 0)
+            {
+                for (int i = 5; i <= 85; i++)
+                {
+                    this.Width = 240;
+                    this.Height = i;
+                }
+            }
+        }
+
+        private void FloatWindow_MouseLeave(object sender, EventArgs e)
+        {
+            if (this.Top == 0)
+            {
+                this.Top++;
+                this.Top--;
+            }
+        }
+
         private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             if (Visible)
@@ -224,5 +253,30 @@ namespace Penguin_Monitor
             else
             { Show(); toolStripMenuItemHide.Checked = false; }
         }
+<<<<<<< Updated upstream
+=======
+
+        public void ReloadColor()
+        {
+            this.BackColor = Properties.Settings.Default.TopColor;
+            CPULB.ReloadColor();
+            RAMLB.ReloadColor();
+            UploadLB.ReloadColor();
+            DownloadLB.ReloadColor();
+        }
+
+        private void toolStripMenuItemDonate_Click(object sender, EventArgs e)
+        {
+            Form donate = new DonateWnd();
+            donate.Show();
+        }
+
+        private void toolStripMenuItemMod_Click(object sender, EventArgs e)
+        {
+            Modify mod = new Modify();
+            if (mod.ShowDialog() == DialogResult.OK) ReloadColor();
+            
+        }
+>>>>>>> Stashed changes
     }
 }
