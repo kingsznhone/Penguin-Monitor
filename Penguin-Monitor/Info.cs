@@ -10,14 +10,16 @@ using System.Windows.Forms;
 
 namespace Penguin_Monitor
 {
-    public partial class DonateWnd : Form
+    public partial class Info : Form
     {
-        public DonateWnd()
+        public Info()
         {
             InitializeComponent();
-            pictureBox1.Image = Properties.Resources.donate;
-
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/kingsznhone/Penguin-Monitor");
+        }
     }
 }
