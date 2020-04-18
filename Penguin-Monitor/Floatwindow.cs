@@ -253,8 +253,7 @@ namespace Penguin_Monitor
             else
             { Show(); toolStripMenuItemHide.Checked = false; }
         }
-<<<<<<< Updated upstream
-=======
+
 
         public void ReloadColor()
         {
@@ -277,6 +276,5 @@ namespace Penguin_Monitor
             if (mod.ShowDialog() == DialogResult.OK) ReloadColor();
             
         }
->>>>>>> Stashed changes
     }
 }

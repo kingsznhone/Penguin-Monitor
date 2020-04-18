@@ -69,6 +69,12 @@
     <Compile Include="BGLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DonateWnd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DonateWnd.Designer.cs">
+      <DependentUpon>DonateWnd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Floatwindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <Compile Include="Monitor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DonateWnd.resx">
+      <DependentUpon>DonateWnd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Floatwindow.resx">
       <DependentUpon>Floatwindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,12 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Monitor.ico" />
-<<<<<<< Updated upstream
-=======
-    <None Include="Properties\mp.gif" />
-    <None Include="Properties\donate.jpg" />
-    <None Include="Resources\Image1.jpg" />
->>>>>>> Stashed changes
+    <Content Include="Properties\mp.gif" />
+    <Content Include="Properties\donate.jpg" />
+    <Content Include="Resources\Image1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

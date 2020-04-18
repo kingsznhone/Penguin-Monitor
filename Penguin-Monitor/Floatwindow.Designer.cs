@@ -74,19 +74,12 @@
             this.toolStripMenuItemHide,
             this.toolStripMenuItemNets,
             this.toolStripMenuItemOpacity,
-<<<<<<< Updated upstream
-            this.toolStripMenuItemInfo,
-            this.exitToolStripMenuItemExit});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 148);
-=======
             this.toolStripMenuItemMod,
             this.toolStripMenuItemDonate,
             this.toolStripMenuItemInfo,
             this.exitToolStripMenuItemExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(139, 196);
->>>>>>> Stashed changes
             // 
             // toolStripMenuItemPene
             // 
@@ -280,11 +273,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNets;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHide;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPene;
-<<<<<<< Updated upstream
-=======
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMod;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDonate;
->>>>>>> Stashed changes
     }
 }
 

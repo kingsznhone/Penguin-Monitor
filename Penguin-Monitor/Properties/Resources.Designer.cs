@@ -59,8 +59,6 @@ namespace Penguin_Monitor.Properties {
                 resourceCulture = value;
             }
         }
-<<<<<<< Updated upstream
-=======
         
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
@@ -81,6 +79,5 @@ namespace Penguin_Monitor.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
->>>>>>> Stashed changes
     }
 }
