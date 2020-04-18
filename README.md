@@ -6,6 +6,11 @@
 # 版本
 ### v2.0
 史诗级更新，可以自定义配色了。
+
+
+![image](https://github.com/kingsznhone/Penguin-Monitor/blob/master/Mod.jpg)
+
+
 ### v1.5
 增加了打赏的选项，开始恰烂钱
 ### v1.4.4
