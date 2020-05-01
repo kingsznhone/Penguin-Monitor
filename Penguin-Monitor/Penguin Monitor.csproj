@@ -99,13 +99,31 @@
     <EmbeddedResource Include="DonateWnd.resx">
       <DependentUpon>DonateWnd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Floatwindow.en.resx">
+      <DependentUpon>Floatwindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Floatwindow.resx">
       <DependentUpon>Floatwindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Floatwindow.zh-CN.resx">
+      <DependentUpon>Floatwindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Info.en.resx">
+      <DependentUpon>Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Info.resx">
       <DependentUpon>Info.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Info.zh-CN.resx">
+      <DependentUpon>Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modify.en.resx">
+      <DependentUpon>Modify.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modify.resx">
+      <DependentUpon>Modify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modify.zh-CN.resx">
       <DependentUpon>Modify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -134,7 +152,6 @@
   <ItemGroup>
     <Content Include="Monitor.ico" />
     <Content Include="Properties\donate.jpg" />
-    <Content Include="Resources\Image1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -147,6 +164,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

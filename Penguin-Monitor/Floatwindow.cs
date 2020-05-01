@@ -8,10 +8,13 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Security.AccessControl;
+using Microsoft.Win32;
+using System.Globalization;
 
 namespace Penguin_Monitor
 {
-    
+
 
     public partial class FloatWindow : Form
     {
@@ -50,25 +53,35 @@ namespace Penguin_Monitor
         public const int WM_SYSCOMMAND = 0x0112;
         public const int SC_MOVE = 0xF010;
         public const int HTCAPTION = 0x0002;
-        
+
 
         Monitor M = new Monitor();
 
         bool PositionLock = false;
-        bool isPenetrating =false;
+        bool isPenetrating = false;
 
         public FloatWindow()
         {
+            ChangeUILang();
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             InitializeComponent();
             ReloadColor();
+            
+            //MessageBox.Show(CultureInfo.CurrentUICulture.Name);
             if (!InitMonitor())
                 MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void ChangeUILang()
+        {
+            if (CultureInfo.CurrentUICulture.Name.StartsWith("zh")) Thread.CurrentThread.CurrentUICulture = new CultureInfo("zh_CN");
+            else Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
         }
 
         public void ManualScanNetwork(object sender, EventArgs e)
         {
             if (!InitMonitor())
-                MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("连接网络后重试" + Environment.NewLine+ "Retry after conneted to network", "未检测到网络 No network detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public bool InitMonitor()
@@ -89,7 +102,10 @@ namespace Penguin_Monitor
             }
             TSMIs[0].Checked = true;
             toolStripMenuItemNets.Click -= new EventHandler(this.ManualScanNetwork);
-            toolStripMenuItemNets.Text = "网络";
+            if (CultureInfo.CurrentUICulture.Name.StartsWith("zh"))
+                toolStripMenuItemNets.Text = "网络";
+            else 
+                toolStripMenuItemNets.Text = "Network";
             toolStripMenuItemNets.DropDownItems.AddRange(TSMIs.ToArray());
             RefreshTimer.Enabled = true;
             return true;
@@ -129,7 +145,7 @@ namespace Penguin_Monitor
             M.refresh();
 
             RAMLB.Value = M.getRamUtil();
-            RAMLB.StackValue( RAMLB.Value);
+            RAMLB.StackValue(RAMLB.Value);
             RAMLB.Text = "RAM " + M.getRamUtil() + "%";
 
 
@@ -159,7 +175,7 @@ namespace Penguin_Monitor
             i.Checked = true;
 
             this.Opacity = Convert.ToDouble(i.Text);
-            if (isPenetrating) SetPenetrate(Convert.ToInt32(Convert.ToDouble(i.Text) * 255)); 
+            if (isPenetrating) SetPenetrate(Convert.ToInt32(Convert.ToDouble(i.Text) * 255));
         }
 
         private void ToolStripMenuInfo_Click(object sender, EventArgs e)
@@ -207,7 +223,7 @@ namespace Penguin_Monitor
             {
                 isPenetrating = true;
                 i.Checked = true;
-                SetPenetrate(Convert.ToInt32(this.Opacity*255));
+                SetPenetrate(Convert.ToInt32(this.Opacity * 255));
             }
         }
 
@@ -273,8 +289,31 @@ namespace Penguin_Monitor
         private void toolStripMenuItemMod_Click(object sender, EventArgs e)
         {
             Modify mod = new Modify();
-            if (mod.ShowDialog() == DialogResult.OK) ReloadColor();
+            Thread T = new Thread(() => {
+                if (mod.ShowDialog() == DialogResult.OK)
+                    this.Invoke(new Action(() => { ReloadColor(); }));
+            });
+            T.Start();
             
+        }
+
+        private void toolStripMenuItemStartUp_Click(object sender, EventArgs e)
+        {
+            RegistryKey rk = Registry.CurrentUser.OpenSubKey
+            ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+            ToolStripMenuItem i = (ToolStripMenuItem)sender;
+            if (i.Checked)
+            {
+                rk.DeleteValue("Penguin Monitor", false);
+                i.Checked = false;
+            }
+            else
+            {
+                rk.SetValue("Penguin Monitor", Application.ExecutablePath);
+                i.Checked = true;
+            }
+
         }
     }
 }

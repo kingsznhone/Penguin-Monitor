@@ -43,6 +43,7 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMod = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemStartUp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemDonate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,14 +61,13 @@
             // 
             // notifyIcon1
             // 
+            resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "偷偷看着我最喜欢的人";
-            this.notifyIcon1.Visible = true;
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon1_DoubleClick);
             // 
             // contextMenuStrip1
             // 
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemPene,
@@ -75,174 +75,143 @@
             this.toolStripMenuItemNets,
             this.toolStripMenuItemOpacity,
             this.toolStripMenuItemMod,
+            this.toolStripMenuItemStartUp,
             this.toolStripMenuItemDonate,
             this.toolStripMenuItemInfo,
             this.exitToolStripMenuItemExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 196);
             // 
             // toolStripMenuItemPene
             // 
+            resources.ApplyResources(this.toolStripMenuItemPene, "toolStripMenuItemPene");
             this.toolStripMenuItemPene.Name = "toolStripMenuItemPene";
-            this.toolStripMenuItemPene.Size = new System.Drawing.Size(138, 24);
-            this.toolStripMenuItemPene.Text = "鼠标穿透";
             this.toolStripMenuItemPene.Click += new System.EventHandler(this.ToolStripMenuItemPene_Click);
             // 
             // toolStripMenuItemHide
             // 
+            resources.ApplyResources(this.toolStripMenuItemHide, "toolStripMenuItemHide");
             this.toolStripMenuItemHide.Name = "toolStripMenuItemHide";
-            this.toolStripMenuItemHide.Size = new System.Drawing.Size(138, 24);
-            this.toolStripMenuItemHide.Text = "隐藏";
             this.toolStripMenuItemHide.Click += new System.EventHandler(this.ToolStripMenuItemHide_Click);
             // 
             // toolStripMenuItemNets
             // 
+            resources.ApplyResources(this.toolStripMenuItemNets, "toolStripMenuItemNets");
             this.toolStripMenuItemNets.Name = "toolStripMenuItemNets";
-            this.toolStripMenuItemNets.Size = new System.Drawing.Size(138, 24);
-            this.toolStripMenuItemNets.Text = "扫描网络";
             this.toolStripMenuItemNets.Click += new System.EventHandler(this.ManualScanNetwork);
             // 
             // toolStripMenuItemOpacity
             // 
+            resources.ApplyResources(this.toolStripMenuItemOpacity, "toolStripMenuItemOpacity");
             this.toolStripMenuItemOpacity.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
             this.toolStripMenuItem6,
             this.toolStripMenuItem7});
             this.toolStripMenuItemOpacity.Name = "toolStripMenuItemOpacity";
-            this.toolStripMenuItemOpacity.Size = new System.Drawing.Size(138, 24);
-            this.toolStripMenuItemOpacity.Text = "透明度";
             // 
             // toolStripMenuItem4
             // 
+            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(123, 26);
-            this.toolStripMenuItem4.Text = "0.25";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.ChangeOpacity_Click);
             // 
             // toolStripMenuItem5
             // 
+            resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(123, 26);
-            this.toolStripMenuItem5.Text = "0.5";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.ChangeOpacity_Click);
             // 
             // toolStripMenuItem6
             // 
+            resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
             this.toolStripMenuItem6.Checked = true;
             this.toolStripMenuItem6.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(123, 26);
-            this.toolStripMenuItem6.Text = "0.75";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.ChangeOpacity_Click);
             // 
             // toolStripMenuItem7
             // 
+            resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(123, 26);
-            this.toolStripMenuItem7.Text = "1";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.ChangeOpacity_Click);
             // 
             // toolStripMenuItemMod
             // 
+            resources.ApplyResources(this.toolStripMenuItemMod, "toolStripMenuItemMod");
             this.toolStripMenuItemMod.Name = "toolStripMenuItemMod";
-            this.toolStripMenuItemMod.Size = new System.Drawing.Size(138, 24);
-            this.toolStripMenuItemMod.Text = "自定义";
             this.toolStripMenuItemMod.Click += new System.EventHandler(this.toolStripMenuItemMod_Click);
+            // 
+            // toolStripMenuItemStartUp
+            // 
+            resources.ApplyResources(this.toolStripMenuItemStartUp, "toolStripMenuItemStartUp");
+            this.toolStripMenuItemStartUp.Name = "toolStripMenuItemStartUp";
+            this.toolStripMenuItemStartUp.Click += new System.EventHandler(this.toolStripMenuItemStartUp_Click);
             // 
             // toolStripMenuItemDonate
             // 
+            resources.ApplyResources(this.toolStripMenuItemDonate, "toolStripMenuItemDonate");
             this.toolStripMenuItemDonate.Name = "toolStripMenuItemDonate";
-            this.toolStripMenuItemDonate.Size = new System.Drawing.Size(138, 24);
-            this.toolStripMenuItemDonate.Text = "打赏";
             this.toolStripMenuItemDonate.Click += new System.EventHandler(this.toolStripMenuItemDonate_Click);
             // 
             // toolStripMenuItemInfo
             // 
+            resources.ApplyResources(this.toolStripMenuItemInfo, "toolStripMenuItemInfo");
             this.toolStripMenuItemInfo.Name = "toolStripMenuItemInfo";
-            this.toolStripMenuItemInfo.Size = new System.Drawing.Size(138, 24);
-            this.toolStripMenuItemInfo.Text = "关于";
             this.toolStripMenuItemInfo.Click += new System.EventHandler(this.ToolStripMenuInfo_Click);
             // 
             // exitToolStripMenuItemExit
             // 
+            resources.ApplyResources(this.exitToolStripMenuItemExit, "exitToolStripMenuItemExit");
             this.exitToolStripMenuItemExit.Name = "exitToolStripMenuItemExit";
-            this.exitToolStripMenuItemExit.Size = new System.Drawing.Size(138, 24);
-            this.exitToolStripMenuItemExit.Text = "退出";
             this.exitToolStripMenuItemExit.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // RAMLB
             // 
+            resources.ApplyResources(this.RAMLB, "RAMLB");
             this.RAMLB.BackColor = System.Drawing.Color.Black;
-            this.RAMLB.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.RAMLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
-            this.RAMLB.Location = new System.Drawing.Point(120, 45);
             this.RAMLB.Name = "RAMLB";
-            this.RAMLB.Size = new System.Drawing.Size(120, 40);
-            this.RAMLB.TabIndex = 0;
-            this.RAMLB.Text = "RAM";
-            this.RAMLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RAMLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // CPULB
             // 
+            resources.ApplyResources(this.CPULB, "CPULB");
             this.CPULB.BackColor = System.Drawing.Color.Black;
-            this.CPULB.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.CPULB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
-            this.CPULB.Location = new System.Drawing.Point(120, 5);
             this.CPULB.Name = "CPULB";
-            this.CPULB.Size = new System.Drawing.Size(120, 40);
-            this.CPULB.TabIndex = 0;
-            this.CPULB.Text = "CPU";
-            this.CPULB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.CPULB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // UploadLB
             // 
+            resources.ApplyResources(this.UploadLB, "UploadLB");
             this.UploadLB.BackColor = System.Drawing.Color.Black;
-            this.UploadLB.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UploadLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
-            this.UploadLB.Location = new System.Drawing.Point(0, 45);
             this.UploadLB.Name = "UploadLB";
-            this.UploadLB.Size = new System.Drawing.Size(120, 40);
-            this.UploadLB.TabIndex = 0;
-            this.UploadLB.Text = "Up";
-            this.UploadLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.UploadLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // DownloadLB
             // 
+            resources.ApplyResources(this.DownloadLB, "DownloadLB");
             this.DownloadLB.BackColor = System.Drawing.Color.Black;
-            this.DownloadLB.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DownloadLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
-            this.DownloadLB.Location = new System.Drawing.Point(0, 5);
             this.DownloadLB.Name = "DownloadLB";
-            this.DownloadLB.Size = new System.Drawing.Size(120, 40);
-            this.DownloadLB.TabIndex = 0;
-            this.DownloadLB.Text = "Down";
-            this.DownloadLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.DownloadLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // FloatWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
-            this.ClientSize = new System.Drawing.Size(240, 85);
             this.ControlBox = false;
             this.Controls.Add(this.RAMLB);
             this.Controls.Add(this.CPULB);
             this.Controls.Add(this.UploadLB);
             this.Controls.Add(this.DownloadLB);
-            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FloatWindow";
             this.Opacity = 0.75D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Penguin Monitor";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FloatWindow_FormClosed);
             this.Load += new System.EventHandler(this.FloatWindow_Load);
@@ -275,6 +244,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPene;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMod;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDonate;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStartUp;
     }
 }
 
