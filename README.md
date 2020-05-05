@@ -9,6 +9,15 @@ Sale on Microsoft Store
 
 # 版本 Version
 
+### v2.3
+修正了不能修改背景颜色的bug。
+
+UI优化
+
+Unable to change background color has been fixed.
+
+UI improvement.
+
 ### v2.2
 加入全球化支持，非中文语言系统自动显示为英文UI
 

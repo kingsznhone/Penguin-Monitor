@@ -62,12 +62,16 @@ namespace Penguin_Monitor
 
         public FloatWindow()
         {
+            
             ChangeUILang();
             //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             InitializeComponent();
+
+            RegistryKey rk = Registry.CurrentUser.OpenSubKey
+            ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (null == rk.GetValue("PenguinMonitor", null)) toolStripMenuItemStartUp.Checked = false;
+
             ReloadColor();
-            
-            //MessageBox.Show(CultureInfo.CurrentUICulture.Name);
             if (!InitMonitor())
                 MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -288,12 +292,13 @@ namespace Penguin_Monitor
 
         private void toolStripMenuItemMod_Click(object sender, EventArgs e)
         {
-            Modify mod = new Modify();
-            Thread T = new Thread(() => {
-                if (mod.ShowDialog() == DialogResult.OK)
-                    this.Invoke(new Action(() => { ReloadColor(); }));
-            });
-            T.Start();
+            Modify mod = new Modify(this);
+            mod.Show();
+            //Thread T = new Thread(() => {
+            //    if (mod.ShowDialog() == DialogResult.OK)
+            //        this.Invoke(new Action(() => { ReloadColor(); }));
+            //});
+            //T.Start();
             
         }
 
@@ -305,14 +310,16 @@ namespace Penguin_Monitor
             ToolStripMenuItem i = (ToolStripMenuItem)sender;
             if (i.Checked)
             {
-                rk.DeleteValue("Penguin Monitor", false);
+                rk.DeleteValue("PenguinMonitor", false);
                 i.Checked = false;
             }
             else
             {
-                rk.SetValue("Penguin Monitor", Application.ExecutablePath);
+                rk.SetValue("PenguinMonitor", Application.ExecutablePath);
                 i.Checked = true;
             }
+
+            
 
         }
     }

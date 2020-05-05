@@ -21,7 +21,6 @@ namespace Penguin_Monitor
             if (bCreatedNew)
             //Create a new mutex using specific mutex name
             {
-                
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new FloatWindow());

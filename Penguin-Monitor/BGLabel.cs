@@ -57,6 +57,7 @@ namespace Penguin_Monitor
 			BorderColor = Properties.Settings.Default.BorderColor;
 			WarningColor = Properties.Settings.Default.WarningColor;
 			ForeColor= Properties.Settings.Default.ForeColor;
+			BackColor = Properties.Settings.Default.BackgroundColor;
 			this.Font = Properties.Settings.Default.字体;
 		}
 

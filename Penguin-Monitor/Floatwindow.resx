@@ -160,6 +160,9 @@
   <data name="toolStripMenuItemOpacity.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 24</value>
   </data>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 26</value>
+  </data>
   <data name="CPULB.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
@@ -175,6 +178,9 @@
   <data name="toolStripMenuItemStartUp.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 24</value>
   </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 220</value>
+  </data>
   <data name="CPULB.Location" type="System.Drawing.Point, System.Drawing">
     <value>120, 5</value>
   </data>
@@ -185,17 +191,17 @@
   <data name="&gt;&gt;RefreshTimer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="toolStripMenuItemInfo.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
   <data name="&gt;&gt;RAMLB.Name" xml:space="preserve">
     <value>RAMLB</value>
   </data>
   <data name="CPULB.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 40</value>
   </data>
-  <data name="&gt;&gt;notifyIcon1.Name" xml:space="preserve">
-    <value>notifyIcon1</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemInfo.Name" xml:space="preserve">
-    <value>toolStripMenuItemInfo</value>
+  <data name="RAMLB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 40</value>
   </data>
   <data name="RAMLB.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -213,14 +219,11 @@
   <data name="UploadLB.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 40</value>
   </data>
-  <data name="&gt;&gt;DownloadLB.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;RAMLB.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="toolStripMenuItemMod.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 24</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemOpacity.Name" xml:space="preserve">
-    <value>toolStripMenuItemOpacity</value>
   </data>
   <data name="toolStripMenuItemStartUp.Text" xml:space="preserve">
     <value>开机自启动</value>
@@ -230,6 +233,9 @@
   </data>
   <data name="toolStripMenuItemPene.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 24</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FloatWindow</value>
   </data>
   <data name="toolStripMenuItemNets.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 24</value>
@@ -247,7 +253,7 @@
     <value>隐藏</value>
   </data>
   <data name="&gt;&gt;DownloadLB.Type" xml:space="preserve">
-    <value>Penguin_Monitor.BGLabel, 企鹅悬浮窗, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Penguin_Monitor.BGLabel, 企鹅悬浮窗, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="DownloadLB.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -265,13 +271,10 @@
     <value>toolStripMenuItemHide</value>
   </data>
   <data name="&gt;&gt;RAMLB.Type" xml:space="preserve">
-    <value>Penguin_Monitor.BGLabel, 企鹅悬浮窗, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Penguin_Monitor.BGLabel, 企鹅悬浮窗, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei UI, 12pt</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItemStartUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DownloadLB.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 40</value>
@@ -280,7 +283,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;UploadLB.Type" xml:space="preserve">
-    <value>Penguin_Monitor.BGLabel, 企鹅悬浮窗, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Penguin_Monitor.BGLabel, 企鹅悬浮窗, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="notifyIcon1.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -304,7 +307,7 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;CPULB.Type" xml:space="preserve">
-    <value>Penguin_Monitor.BGLabel, 企鹅悬浮窗, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Penguin_Monitor.BGLabel, 企鹅悬浮窗, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="UploadLB.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1477,9 +1480,6 @@
   <data name="&gt;&gt;toolStripMenuItem7.Name" xml:space="preserve">
     <value>toolStripMenuItem7</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="notifyIcon1.Text" xml:space="preserve">
     <value>偷偷看着我最喜欢的人</value>
   </data>
@@ -1513,6 +1513,9 @@
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
   </data>
+  <data name="&gt;&gt;toolStripMenuItemNets.Name" xml:space="preserve">
+    <value>toolStripMenuItemNets</value>
+  </data>
   <data name="&gt;&gt;exitToolStripMenuItemExit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1537,29 +1540,26 @@
   <data name="&gt;&gt;CPULB.Name" xml:space="preserve">
     <value>CPULB</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItemNets.Name" xml:space="preserve">
-    <value>toolStripMenuItemNets</value>
+  <data name="&gt;&gt;toolStripMenuItemInfo.Name" xml:space="preserve">
+    <value>toolStripMenuItemInfo</value>
   </data>
   <data name="toolStripMenuItem7.Text" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 26</value>
-  </data>
   <data name="&gt;&gt;toolStripMenuItemInfo.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 26</value>
+  <data name="&gt;&gt;toolStripMenuItemStartUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RAMLB.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;notifyIcon1.Name" xml:space="preserve">
+    <value>notifyIcon1</value>
   </data>
   <data name="toolStripMenuItemNets.Text" xml:space="preserve">
     <value>扫描网络</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FloatWindow</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -1570,14 +1570,14 @@
   <data name="toolStripMenuItemOpacity.Text" xml:space="preserve">
     <value>透明度</value>
   </data>
-  <data name="toolStripMenuItemInfo.Text" xml:space="preserve">
-    <value>关于</value>
+  <data name="&gt;&gt;toolStripMenuItemOpacity.Name" xml:space="preserve">
+    <value>toolStripMenuItemOpacity</value>
   </data>
-  <data name="RAMLB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 40</value>
+  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 26</value>
   </data>
-  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 220</value>
+  <data name="&gt;&gt;DownloadLB.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <metadata name="RefreshTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

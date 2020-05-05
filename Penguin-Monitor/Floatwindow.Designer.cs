@@ -144,6 +144,8 @@
             // toolStripMenuItemStartUp
             // 
             resources.ApplyResources(this.toolStripMenuItemStartUp, "toolStripMenuItemStartUp");
+            this.toolStripMenuItemStartUp.Checked = true;
+            this.toolStripMenuItemStartUp.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemStartUp.Name = "toolStripMenuItemStartUp";
             this.toolStripMenuItemStartUp.Click += new System.EventHandler(this.toolStripMenuItemStartUp_Click);
             // 

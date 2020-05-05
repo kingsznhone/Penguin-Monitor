@@ -173,6 +173,8 @@
             this.Controls.Add(this.UploadLB);
             this.Controls.Add(this.DownloadLB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Modify";
             this.ShowInTaskbar = false;
             this.TopMost = true;

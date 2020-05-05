@@ -12,6 +12,8 @@ namespace Penguin_Monitor
 {
     public partial class Modify : Form
     {
+        public FloatWindow parent;
+
         PointF[] MergedArray;
         PointF[] baseline;
         PointF[] loadstack;
@@ -29,6 +31,24 @@ namespace Penguin_Monitor
             MakeData(RAMdata);
             RAMLB.MergedArray = MergedArray;
             this.Refresh();
+        }
+
+
+        public Modify(FloatWindow parent)
+        {
+            int[] CPUdata = { 10, 15, 48, 56, 4, 15, 2, 8, 15, 88, 98 };
+            int[] RAMdata = { 20, 25, 30, 45, 22, 50, 50, 38, 31, 20, 33 };
+            InitializeComponent();
+
+            ReloadColor();
+
+            MakeData(CPUdata);
+            CPULB.MergedArray = MergedArray;
+            CPULB.Value = 100;
+            MakeData(RAMdata);
+            RAMLB.MergedArray = MergedArray;
+            this.Refresh();
+            this.parent = parent;
         }
 
         public void ReloadColor()
@@ -163,7 +183,7 @@ namespace Penguin_Monitor
             Properties.Settings.Default.字体 = CPULB.Font;
             Properties.Settings.Default.TopColor = TopLB.BackColor;
             Properties.Settings.Default.Save();
-            DialogResult = DialogResult.OK;
+            this.parent.ReloadColor();
         }
 
         private void DefaltBtn_Click(object sender, EventArgs e)
@@ -176,7 +196,8 @@ namespace Penguin_Monitor
             Properties.Settings.Default.字体 = new Font("Microsoft YaHei UI", 10.8f);
             Properties.Settings.Default.TopColor = Color.RoyalBlue;
             Properties.Settings.Default.Save();
-            DialogResult = DialogResult.OK;
+            this.parent.ReloadColor();
+            this.Close();
         }
     }
 }
