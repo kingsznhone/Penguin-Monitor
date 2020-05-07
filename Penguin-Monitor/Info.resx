@@ -1253,8 +1253,8 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 27</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Coded By KingsZNHONE</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="linkLabel1.AutoSize" type="System.Boolean, mscorlib">
@@ -1285,6 +1285,9 @@
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 27</value>
   </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Info</value>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>12, 27</value>
   </data>
@@ -1299,9 +1302,6 @@
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>52, 66</value>
@@ -1320,6 +1320,9 @@
   </data>
   <data name="&gt;&gt;linkLabel1.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="linkLabel1.Text" xml:space="preserve">
+    <value>官网</value>
   </data>
   <data name="&gt;&gt;linkLabel1.Name" xml:space="preserve">
     <value>linkLabel1</value>
@@ -1348,17 +1351,17 @@
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
   </data>
+  <data name="linkLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei UI, 12pt</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>吸顶自动隐藏</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="linkLabel1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>双击任务栏图标隐藏</value>
@@ -1378,6 +1381,9 @@
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1386,9 +1392,6 @@
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 27</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -1403,10 +1406,7 @@
     <value>52, 39</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>企鹅悬浮窗 v2.0</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>企鹅悬浮窗 v2.3</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>了解更多详情</value>
@@ -1414,8 +1414,8 @@
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1432,17 +1432,17 @@
   <data name="&gt;&gt;linkLabel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="linkLabel1.Text" xml:space="preserve">
-    <value>官网</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 27</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Coded By KingsZNHONE</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 27</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>333, 203</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Info</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1453,8 +1453,8 @@
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>

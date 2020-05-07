@@ -157,9 +157,9 @@ namespace Penguin_Monitor
         }
         private string format(long[] num)
         {
-            double n = num.Average() /1024.0;
-            if (n >= 1000000.0) return (n / 1024/1024).ToString("0.00") + "GB/s";
-            else if(n >= 1000.0) return (n / 1024).ToString("0.00") + "MB/s";
+            double n = num.Average() / 1024.0;
+            if (n >= 1000000.0) return (n / 1024 / 1024).ToString("0.00") + "GB/s";
+            else if (n >= 1000.0) return (n / 1024).ToString("0.00") + "MB/s";
             else if (n >= 100) return n.ToString("0.0") + "KB/s";
             else if (n > 0) return n.ToString("0.00") + "KB/s";
             else { return "0.00" + "KB/s"; }

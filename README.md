@@ -9,6 +9,11 @@ Sale on Microsoft Store
 
 # 版本 Version
 
+### v2.4
+自定义调节透明度
+
+Customize Opacity
+
 ### v2.3
 修正了不能修改背景颜色的bug。
 

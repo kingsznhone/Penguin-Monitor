@@ -119,31 +119,31 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="toolStripMenuItemPene.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 26</value>
+    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemHide.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 26</value>
+    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemNets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 26</value>
+    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemOpacity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 26</value>
+    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemMod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 26</value>
+    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemStartUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 26</value>
+    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemDonate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 26</value>
+    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 26</value>
+    <value>210, 26</value>
   </data>
   <data name="exitToolStripMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 26</value>
+    <value>210, 26</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 238</value>
@@ -1279,6 +1279,21 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 26</value>
+  </data>
+  <data name="ToolStripMenuItemOCustom.Text" xml:space="preserve">
+    <value>自定义</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="RAMLB.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">

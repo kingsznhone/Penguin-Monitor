@@ -62,24 +62,68 @@ namespace Penguin_Monitor
 
         public FloatWindow()
         {
-            
-            ChangeUILang();
+
+            DecideUILang();
             //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             InitializeComponent();
 
-            RegistryKey rk = Registry.CurrentUser.OpenSubKey
-            ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            if (null == rk.GetValue("PenguinMonitor", null)) toolStripMenuItemStartUp.Checked = false;
+            using (RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                if (null == rk.GetValue("PenguinMonitor", null)) toolStripMenuItemStartUp.Checked = false;
+            }
 
             ReloadColor();
             if (!InitMonitor())
                 MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void ChangeUILang()
+        private void DecideUILang()
         {
             if (CultureInfo.CurrentUICulture.Name.StartsWith("zh")) Thread.CurrentThread.CurrentUICulture = new CultureInfo("zh_CN");
             else Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+        }
+
+        private void FloatWindow_Load(object sender, EventArgs e)
+        {
+            int width = Screen.PrimaryScreen.Bounds.Width;
+            this.Left = width / 2 - 120;
+            this.Top = 0;
+        }
+
+        #region Hide On Top
+        private void FloatWindow_Move(object sender, EventArgs e)
+        {
+            if (this.Top == 0)
+            {
+                this.Width = 240;
+                this.Height = 5;
+            }
+            else
+            {
+                this.Width = 240;
+                this.Height = 85;
+            }
+        }
+
+        private void FloatWindow_MouseHover(object sender, EventArgs e)
+        {
+            if (this.Top == 0)
+            {
+                for (int i = 5; i <= 85; i++)
+                {
+                    this.Width = 240;
+                    this.Height = i;
+                }
+            }
+        }
+
+        private void FloatWindow_MouseLeave(object sender, EventArgs e)
+        {
+            if (this.Top == 0)
+            {
+                this.Top++;
+                this.Top--;
+            }
         }
 
         public void ManualScanNetwork(object sender, EventArgs e)
@@ -87,6 +131,8 @@ namespace Penguin_Monitor
             if (!InitMonitor())
                 MessageBox.Show("连接网络后重试" + Environment.NewLine+ "Retry after conneted to network", "未检测到网络 No network detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        #endregion
+
 
         public bool InitMonitor()
         {
@@ -109,7 +155,7 @@ namespace Penguin_Monitor
             if (CultureInfo.CurrentUICulture.Name.StartsWith("zh"))
                 toolStripMenuItemNets.Text = "网络";
             else 
-                toolStripMenuItemNets.Text = "Network";
+                toolStripMenuItemNets.Text = "Networks";
             toolStripMenuItemNets.DropDownItems.AddRange(TSMIs.ToArray());
             RefreshTimer.Enabled = true;
             return true;
@@ -135,13 +181,6 @@ namespace Penguin_Monitor
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
             }
-        }
-
-
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.notifyIcon1.Dispose();
-            Environment.Exit(0);
         }
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
@@ -178,30 +217,15 @@ namespace Penguin_Monitor
             ToolStripMenuItem i = (ToolStripMenuItem)sender;
             i.Checked = true;
 
-            this.Opacity = Convert.ToDouble(i.Text);
-            if (isPenetrating) SetPenetrate(Convert.ToInt32(Convert.ToDouble(i.Text) * 255));
+            ChangeOpacity(Convert.ToDouble(i.Text));
         }
 
-        private void ToolStripMenuInfo_Click(object sender, EventArgs e)
+        public void ChangeOpacity(double opacity)
         {
-            Info info = new Info();
-            info.Show();
-        }
-
-        private void FloatWindow_Load(object sender, EventArgs e)
-        {
-            int width = Screen.PrimaryScreen.Bounds.Width;
-            this.Left = width / 2 - 120;
-            this.Top = 0;
-        }
-
-        private void ToolStripMenuItemHide_Click(object sender, EventArgs e)
-        {
-            ToolStripMenuItem i = (ToolStripMenuItem)sender;
-            if (i.Checked)
-            { Show(); i.Checked = false; }
-            else
-            { Hide(); i.Checked = true; }
+            this.Opacity = opacity;
+            if (isPenetrating) SetPenetrate(Convert.ToInt32(opacity * 255));
+            Properties.Settings.Default.Opacity = opacity;
+            Properties.Settings.Default.Save();
         }
 
         public void SetPenetrate(int opacity)
@@ -211,6 +235,27 @@ namespace Penguin_Monitor
             SetWindowLong(this.Handle, GWL_EXSTYLE, STYLE | WS_EX_LAYERED | WS_EX_TRANSPARENT);
             SetLayeredWindowAttributes(this.Handle, 0, opacity, LWA_ALPHA);
         }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.notifyIcon1.Dispose();
+            Environment.Exit(0);
+        }
+
+        private void ToolStripMenuInfo_Click(object sender, EventArgs e)
+        {
+            Info info = new Info();
+            info.Show();
+        }
+
+        private void ToolStripMenuItemHide_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem i = (ToolStripMenuItem)sender;
+            if (i.Checked)
+            { Show(); i.Checked = false; }
+            else
+            { Hide(); i.Checked = true; }
+        } 
 
         private void ToolStripMenuItemPene_Click(object sender, EventArgs e)
         {
@@ -229,59 +274,6 @@ namespace Penguin_Monitor
                 i.Checked = true;
                 SetPenetrate(Convert.ToInt32(this.Opacity * 255));
             }
-        }
-
-        private void FloatWindow_Move(object sender, EventArgs e)
-        {
-            if (this.Top == 0)
-            {
-                this.Width = 240;
-                this.Height = 5;
-            }
-            else
-            {
-                this.Width = 240;
-                this.Height = 85;
-            }
-        }
-
-        private void FloatWindow_MouseHover(object sender, EventArgs e)
-        {
-            if (this.Top == 0)
-            {
-                for (int i = 5; i <= 85; i++)
-                {
-                    this.Width = 240;
-                    this.Height = i;
-                }
-            }
-        }
-
-        private void FloatWindow_MouseLeave(object sender, EventArgs e)
-        {
-            if (this.Top == 0)
-            {
-                this.Top++;
-                this.Top--;
-            }
-        }
-
-        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
-        {
-            if (Visible)
-            { Hide(); toolStripMenuItemHide.Checked = true; }
-            else
-            { Show(); toolStripMenuItemHide.Checked = false; }
-        }
-
-
-        public void ReloadColor()
-        {
-            this.BackColor = Properties.Settings.Default.TopColor;
-            CPULB.ReloadColor();
-            RAMLB.ReloadColor();
-            UploadLB.ReloadColor();
-            DownloadLB.ReloadColor();
         }
 
         private void toolStripMenuItemDonate_Click(object sender, EventArgs e)
@@ -321,6 +313,29 @@ namespace Penguin_Monitor
 
             
 
+        }
+
+        private void ToolStripMenuItemOCustom_Click(object sender, EventArgs e)
+        {
+            CustomOpacity co = new CustomOpacity(this);
+            co.Show();
+        }
+
+        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            if (Visible)
+            { Hide(); toolStripMenuItemHide.Checked = true; }
+            else
+            { Show(); toolStripMenuItemHide.Checked = false; }
+        }
+
+        public void ReloadColor()
+        {
+            this.BackColor = Properties.Settings.Default.TopColor;
+            CPULB.ReloadColor();
+            RAMLB.ReloadColor();
+            UploadLB.ReloadColor();
+            DownloadLB.ReloadColor();
         }
     }
 }

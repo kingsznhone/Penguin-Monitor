@@ -1278,4 +1278,7 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>企鹅悬浮窗 v2.4</value>
+  </data>
 </root>
