@@ -124,50 +124,26 @@
   <data name="toolStripMenuItemPene.Text" xml:space="preserve">
     <value>Penetration</value>
   </data>
-  <data name="toolStripMenuItemHide.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 26</value>
-  </data>
   <data name="toolStripMenuItemHide.Text" xml:space="preserve">
     <value>Hide</value>
-  </data>
-  <data name="toolStripMenuItemNets.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemNets.Text" xml:space="preserve">
     <value>Scan NetWork</value>
   </data>
-  <data name="toolStripMenuItemOpacity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 26</value>
-  </data>
   <data name="toolStripMenuItemOpacity.Text" xml:space="preserve">
     <value>Opacity</value>
-  </data>
-  <data name="toolStripMenuItemMod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemMod.Text" xml:space="preserve">
     <value>Modification</value>
   </data>
-  <data name="toolStripMenuItemStartUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 26</value>
-  </data>
   <data name="toolStripMenuItemStartUp.Text" xml:space="preserve">
     <value>Startup</value>
-  </data>
-  <data name="toolStripMenuItemDonate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 26</value>
   </data>
   <data name="toolStripMenuItemDonate.Text" xml:space="preserve">
     <value>Donate</value>
   </data>
-  <data name="toolStripMenuItemInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 26</value>
-  </data>
   <data name="toolStripMenuItemInfo.Text" xml:space="preserve">
     <value>About</value>
-  </data>
-  <data name="exitToolStripMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 26</value>
   </data>
   <data name="exitToolStripMenuItemExit.Text" xml:space="preserve">
     <value>Exit</value>
@@ -1309,18 +1285,6 @@
   </data>
   <data name="notifyIcon1.Text" xml:space="preserve">
     <value>Peek on my lover</value>
-  </data>
-  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
-  </data>
-  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
-  </data>
-  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
-  </data>
-  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 26</value>
   </data>
   <data name="ToolStripMenuItemOCustom.Text" xml:space="preserve">
     <value>Custom</value>

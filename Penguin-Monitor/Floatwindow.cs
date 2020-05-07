@@ -66,6 +66,7 @@ namespace Penguin_Monitor
             DecideUILang();
             //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             InitializeComponent();
+            this.Opacity = Properties.Settings.Default.Opacity;
 
             using (RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
             {
@@ -317,6 +318,10 @@ namespace Penguin_Monitor
 
         private void ToolStripMenuItemOCustom_Click(object sender, EventArgs e)
         {
+            foreach (ToolStripMenuItem T in toolStripMenuItemOpacity.DropDownItems)
+            {
+                T.Checked = false;
+            }
             CustomOpacity co = new CustomOpacity(this);
             co.Show();
         }

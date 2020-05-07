@@ -62,12 +62,13 @@
             // 
             // notifyIcon1
             // 
-            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon1_DoubleClick);
             // 
             // contextMenuStrip1
             // 
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemPene,
@@ -80,28 +81,28 @@
             this.toolStripMenuItemInfo,
             this.exitToolStripMenuItemExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
             // toolStripMenuItemPene
             // 
-            this.toolStripMenuItemPene.Name = "toolStripMenuItemPene";
             resources.ApplyResources(this.toolStripMenuItemPene, "toolStripMenuItemPene");
+            this.toolStripMenuItemPene.Name = "toolStripMenuItemPene";
             this.toolStripMenuItemPene.Click += new System.EventHandler(this.ToolStripMenuItemPene_Click);
             // 
             // toolStripMenuItemHide
             // 
-            this.toolStripMenuItemHide.Name = "toolStripMenuItemHide";
             resources.ApplyResources(this.toolStripMenuItemHide, "toolStripMenuItemHide");
+            this.toolStripMenuItemHide.Name = "toolStripMenuItemHide";
             this.toolStripMenuItemHide.Click += new System.EventHandler(this.ToolStripMenuItemHide_Click);
             // 
             // toolStripMenuItemNets
             // 
-            this.toolStripMenuItemNets.Name = "toolStripMenuItemNets";
             resources.ApplyResources(this.toolStripMenuItemNets, "toolStripMenuItemNets");
+            this.toolStripMenuItemNets.Name = "toolStripMenuItemNets";
             this.toolStripMenuItemNets.Click += new System.EventHandler(this.ManualScanNetwork);
             // 
             // toolStripMenuItemOpacity
             // 
+            resources.ApplyResources(this.toolStripMenuItemOpacity, "toolStripMenuItemOpacity");
             this.toolStripMenuItemOpacity.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
@@ -109,100 +110,97 @@
             this.toolStripMenuItem7,
             this.ToolStripMenuItemOCustom});
             this.toolStripMenuItemOpacity.Name = "toolStripMenuItemOpacity";
-            resources.ApplyResources(this.toolStripMenuItemOpacity, "toolStripMenuItemOpacity");
             // 
             // toolStripMenuItem4
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.ChangeOpacity_Click);
             // 
             // toolStripMenuItem5
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.ChangeOpacity_Click);
             // 
             // toolStripMenuItem6
             // 
-            this.toolStripMenuItem6.Checked = true;
-            this.toolStripMenuItem6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.ChangeOpacity_Click);
             // 
             // toolStripMenuItem7
             // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.ChangeOpacity_Click);
             // 
             // ToolStripMenuItemOCustom
             // 
-            this.ToolStripMenuItemOCustom.Name = "ToolStripMenuItemOCustom";
             resources.ApplyResources(this.ToolStripMenuItemOCustom, "ToolStripMenuItemOCustom");
+            this.ToolStripMenuItemOCustom.Name = "ToolStripMenuItemOCustom";
             this.ToolStripMenuItemOCustom.Click += new System.EventHandler(this.ToolStripMenuItemOCustom_Click);
             // 
             // toolStripMenuItemMod
             // 
-            this.toolStripMenuItemMod.Name = "toolStripMenuItemMod";
             resources.ApplyResources(this.toolStripMenuItemMod, "toolStripMenuItemMod");
+            this.toolStripMenuItemMod.Name = "toolStripMenuItemMod";
             this.toolStripMenuItemMod.Click += new System.EventHandler(this.toolStripMenuItemMod_Click);
             // 
             // toolStripMenuItemStartUp
             // 
+            resources.ApplyResources(this.toolStripMenuItemStartUp, "toolStripMenuItemStartUp");
             this.toolStripMenuItemStartUp.Checked = true;
             this.toolStripMenuItemStartUp.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemStartUp.Name = "toolStripMenuItemStartUp";
-            resources.ApplyResources(this.toolStripMenuItemStartUp, "toolStripMenuItemStartUp");
             this.toolStripMenuItemStartUp.Click += new System.EventHandler(this.toolStripMenuItemStartUp_Click);
             // 
             // toolStripMenuItemDonate
             // 
-            this.toolStripMenuItemDonate.Name = "toolStripMenuItemDonate";
             resources.ApplyResources(this.toolStripMenuItemDonate, "toolStripMenuItemDonate");
+            this.toolStripMenuItemDonate.Name = "toolStripMenuItemDonate";
             this.toolStripMenuItemDonate.Click += new System.EventHandler(this.toolStripMenuItemDonate_Click);
             // 
             // toolStripMenuItemInfo
             // 
-            this.toolStripMenuItemInfo.Name = "toolStripMenuItemInfo";
             resources.ApplyResources(this.toolStripMenuItemInfo, "toolStripMenuItemInfo");
+            this.toolStripMenuItemInfo.Name = "toolStripMenuItemInfo";
             this.toolStripMenuItemInfo.Click += new System.EventHandler(this.ToolStripMenuInfo_Click);
             // 
             // exitToolStripMenuItemExit
             // 
-            this.exitToolStripMenuItemExit.Name = "exitToolStripMenuItemExit";
             resources.ApplyResources(this.exitToolStripMenuItemExit, "exitToolStripMenuItemExit");
+            this.exitToolStripMenuItemExit.Name = "exitToolStripMenuItemExit";
             this.exitToolStripMenuItemExit.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // RAMLB
             // 
-            this.RAMLB.BackColor = System.Drawing.Color.Black;
             resources.ApplyResources(this.RAMLB, "RAMLB");
+            this.RAMLB.BackColor = System.Drawing.Color.Black;
             this.RAMLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
             this.RAMLB.Name = "RAMLB";
             this.RAMLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // CPULB
             // 
-            this.CPULB.BackColor = System.Drawing.Color.Black;
             resources.ApplyResources(this.CPULB, "CPULB");
+            this.CPULB.BackColor = System.Drawing.Color.Black;
             this.CPULB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
             this.CPULB.Name = "CPULB";
             this.CPULB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // UploadLB
             // 
-            this.UploadLB.BackColor = System.Drawing.Color.Black;
             resources.ApplyResources(this.UploadLB, "UploadLB");
+            this.UploadLB.BackColor = System.Drawing.Color.Black;
             this.UploadLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
             this.UploadLB.Name = "UploadLB";
             this.UploadLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
             // 
             // DownloadLB
             // 
-            this.DownloadLB.BackColor = System.Drawing.Color.Black;
             resources.ApplyResources(this.DownloadLB, "DownloadLB");
+            this.DownloadLB.BackColor = System.Drawing.Color.Black;
             this.DownloadLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
             this.DownloadLB.Name = "DownloadLB";
             this.DownloadLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
