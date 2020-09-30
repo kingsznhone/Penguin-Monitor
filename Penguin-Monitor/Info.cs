@@ -17,9 +17,11 @@ namespace Penguin_Monitor
             InitializeComponent();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/kingsznhone/Penguin-Monitor");
+            var uri = new Uri("https://github.com/kingsznhone/Penguin-Monitor");
+            var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+            //System.Diagnostics.Process.Start("https://github.com/kingsznhone/Penguin-Monitor");
         }
     }
 }

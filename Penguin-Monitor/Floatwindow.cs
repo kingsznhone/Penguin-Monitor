@@ -84,11 +84,31 @@ namespace Penguin_Monitor
             else Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
         }
 
-        private void FloatWindow_Load(object sender, EventArgs e)
+        private async void FloatWindow_Load(object sender, EventArgs e)
         {
             int width = Screen.PrimaryScreen.Bounds.Width;
             this.Left = width / 2 - 120;
             this.Top = 0;
+            try
+            {
+                var startupTask = await Windows.ApplicationModel.StartupTask.GetAsync("PenguinMonitorTask");
+                switch (startupTask.State)
+                {
+                    case Windows.ApplicationModel.StartupTaskState.Disabled:
+                        toolStripMenuItemStartUp.Checked = false;
+                        break;
+                    case Windows.ApplicationModel.StartupTaskState.DisabledByUser:
+                        toolStripMenuItemStartUp.Checked = false;
+                        break;
+                    case Windows.ApplicationModel.StartupTaskState.Enabled:
+                        toolStripMenuItemStartUp.Checked = true;
+                        break;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("StartupTask Init Fail.");
+            }
         }
 
         #region Hide On Top
@@ -295,24 +315,37 @@ namespace Penguin_Monitor
             
         }
 
-        private void toolStripMenuItemStartUp_Click(object sender, EventArgs e)
+        private async void toolStripMenuItemStartUp_Click(object sender, EventArgs e)
         {
-            RegistryKey rk = Registry.CurrentUser.OpenSubKey
-            ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-
             ToolStripMenuItem i = (ToolStripMenuItem)sender;
-            if (i.Checked)
+
+            //RegistryKey rk = Registry.CurrentUser.OpenSubKey
+            //("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+            var startupTask = await Windows.ApplicationModel.StartupTask.GetAsync("PenguinMonitorTask");
+
+            if (startupTask.State == Windows.ApplicationModel.StartupTaskState.Enabled)
             {
-                rk.DeleteValue("PenguinMonitor", false);
+                startupTask.Disable();
                 i.Checked = false;
+                //rk.DeleteValue("PenguinMonitor", false);
+                //MessageBox.Show("The task has been disabled");
             }
             else
             {
-                rk.SetValue("PenguinMonitor", Application.ExecutablePath);
-                i.Checked = true;
-            }
-
-            
+                var state = await startupTask.RequestEnableAsync();
+                switch (state)
+                {
+                    case Windows.ApplicationModel.StartupTaskState.DisabledByUser:
+                        i.Checked = false;
+                        //rk.DeleteValue("PenguinMonitor", false);
+                        break;
+                    case Windows.ApplicationModel.StartupTaskState.Enabled:
+                        i.Checked = true;
+                        //rk.SetValue("PenguinMonitor", Application.ExecutablePath);
+                        break;
+                }
+            }    
 
         }
 
