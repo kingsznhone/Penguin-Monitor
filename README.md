@@ -9,6 +9,13 @@ Sale on Microsoft Store
 
 # 版本 Version
 
+### v2.5 
+终于搞定了三哥的UWP自启动API，MS商店发布的版本可以随系统启动（火绒剑都找不到的那种启动项）
+
+自编译版本将不能设置启动项，MS商店上架的应用不允许编辑注册表
+
+The release on MS store can automatic startup after login now
+
 ### v2.4
 自定义调节透明度
 
