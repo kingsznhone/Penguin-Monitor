@@ -208,7 +208,7 @@
             // FloatWindow
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ControlBox = false;
             this.Controls.Add(this.RAMLB);

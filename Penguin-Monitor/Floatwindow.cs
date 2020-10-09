@@ -1,16 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Threading;
-using System.Runtime.InteropServices;
-using System.Security.AccessControl;
-using Microsoft.Win32;
 using System.Globalization;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Penguin_Monitor
 {
@@ -62,7 +56,6 @@ namespace Penguin_Monitor
 
         public FloatWindow()
         {
-
             DecideUILang();
             //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             InitializeComponent();
@@ -86,9 +79,21 @@ namespace Penguin_Monitor
 
         private async void FloatWindow_Load(object sender, EventArgs e)
         {
-            int width = Screen.PrimaryScreen.Bounds.Width;
-            this.Left = width / 2 - 120;
-            this.Top = 0;
+            if (Properties.Settings.Default.Top==0&& Properties.Settings.Default.Left == 0)
+            {
+                int width = Screen.PrimaryScreen.Bounds.Width;
+                this.Left = width / 2 - 120;
+                this.Top = 0;
+                Properties.Settings.Default.Top = this.Top;
+                Properties.Settings.Default.Left = this.Left;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                this.Left = Properties.Settings.Default.Left;
+                this.Top = Properties.Settings.Default.Top;
+            }
+            
             try
             {
                 var startupTask = await Windows.ApplicationModel.StartupTask.GetAsync("PenguinMonitorTask");
@@ -114,16 +119,8 @@ namespace Penguin_Monitor
         #region Hide On Top
         private void FloatWindow_Move(object sender, EventArgs e)
         {
-            if (this.Top == 0)
-            {
-                this.Width = 240;
-                this.Height = 5;
-            }
-            else
-            {
-                this.Width = 240;
-                this.Height = 85;
-            }
+            if (this.Top == 0) this.Height = 5;
+            else this.Height = 85;
         }
 
         private void FloatWindow_MouseHover(object sender, EventArgs e)
@@ -132,7 +129,6 @@ namespace Penguin_Monitor
             {
                 for (int i = 5; i <= 85; i++)
                 {
-                    this.Width = 240;
                     this.Height = i;
                 }
             }
@@ -142,15 +138,18 @@ namespace Penguin_Monitor
         {
             if (this.Top == 0)
             {
-                this.Top++;
-                this.Top--;
+                for (int i = 85; i >= 5; i--)
+                {
+                    this.Height = i;
+                }
             }
+
         }
 
         public void ManualScanNetwork(object sender, EventArgs e)
         {
             if (!InitMonitor())
-                MessageBox.Show("连接网络后重试" + Environment.NewLine+ "Retry after conneted to network", "未检测到网络 No network detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("连接网络后重试" + Environment.NewLine + "Retry after conneted to network", "未检测到网络 No network detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         #endregion
 
@@ -175,7 +174,7 @@ namespace Penguin_Monitor
             toolStripMenuItemNets.Click -= new EventHandler(this.ManualScanNetwork);
             if (CultureInfo.CurrentUICulture.Name.StartsWith("zh"))
                 toolStripMenuItemNets.Text = "网络";
-            else 
+            else
                 toolStripMenuItemNets.Text = "Networks";
             toolStripMenuItemNets.DropDownItems.AddRange(TSMIs.ToArray());
             RefreshTimer.Enabled = true;
@@ -202,6 +201,9 @@ namespace Penguin_Monitor
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
             }
+            Properties.Settings.Default.Top = this.Top;
+            Properties.Settings.Default.Left = this.Left;
+            Properties.Settings.Default.Save();
         }
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
@@ -210,7 +212,7 @@ namespace Penguin_Monitor
 
             RAMLB.Value = M.getRamUtil();
             RAMLB.StackValue(RAMLB.Value);
-            RAMLB.Text = "RAM " + M.getRamUtil() + "%";
+            RAMLB.Text = "RAM " + RAMLB.Value + "%";
 
 
             DownloadLB.Text = "↓ " + M.getDownSpeed();
@@ -218,7 +220,7 @@ namespace Penguin_Monitor
 
             CPULB.Value = M.getCpuUtil();
             CPULB.StackValue(CPULB.Value);
-            CPULB.Text = "CPU " + M.getCpuUtil() + "%";
+            CPULB.Text = "CPU " + CPULB.Value + "%";
 
             this.Refresh();
         }
@@ -276,7 +278,7 @@ namespace Penguin_Monitor
             { Show(); i.Checked = false; }
             else
             { Hide(); i.Checked = true; }
-        } 
+        }
 
         private void ToolStripMenuItemPene_Click(object sender, EventArgs e)
         {
@@ -295,6 +297,7 @@ namespace Penguin_Monitor
                 i.Checked = true;
                 SetPenetrate(Convert.ToInt32(this.Opacity * 255));
             }
+            
         }
 
         private void toolStripMenuItemDonate_Click(object sender, EventArgs e)
@@ -312,7 +315,7 @@ namespace Penguin_Monitor
             //        this.Invoke(new Action(() => { ReloadColor(); }));
             //});
             //T.Start();
-            
+
         }
 
         private async void toolStripMenuItemStartUp_Click(object sender, EventArgs e)
@@ -345,7 +348,7 @@ namespace Penguin_Monitor
                         //rk.SetValue("PenguinMonitor", Application.ExecutablePath);
                         break;
                 }
-            }    
+            }
 
         }
 
@@ -361,10 +364,8 @@ namespace Penguin_Monitor
 
         private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
         {
-            if (Visible)
-            { Hide(); toolStripMenuItemHide.Checked = true; }
-            else
-            { Show(); toolStripMenuItemHide.Checked = false; }
+            Visible = !Visible;
+            toolStripMenuItemHide.Checked = !toolStripMenuItemHide.Checked;
         }
 
         public void ReloadColor()

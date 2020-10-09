@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Management;
-using System.Net.NetworkInformation;
-using System.Windows.Forms;
 
 namespace Penguin_Monitor
 {

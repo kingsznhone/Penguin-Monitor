@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Penguin_Monitor
@@ -66,7 +60,7 @@ namespace Penguin_Monitor
             baseline = new PointF[2];
             loadstack = new PointF[11];
             foreach (int data in dataset) StackValue(data);
-            
+
         }
 
         private void CreateBaseline()
@@ -85,7 +79,7 @@ namespace Penguin_Monitor
             Array.Copy(loadstack, 0, loadstack, 1, loadstack.Length - 1);
             for (int i = 0; i < loadstack.Length; i++)
             {
-                loadstack[i].X = (float)(loadstack.Length - i - 1) * 120 / ((float)loadstack.Length - 1f);
+                loadstack[i].X = (float)(loadstack.Length - i - 1) * 120 / (loadstack.Length - 1f);
             }
             loadstack[0].Y = 40 - 40 * value / 100;
 
@@ -142,7 +136,7 @@ namespace Penguin_Monitor
 
         private void WarningColorBtn_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color= CPULB.WarningColor;
+            colorDialog1.Color = CPULB.WarningColor;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 CPULB.WarningColor = colorDialog1.Color;

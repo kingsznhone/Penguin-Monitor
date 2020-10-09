@@ -8,6 +8,15 @@ Penguin Monitor is a floating window for monitoring system resources
 Sale on Microsoft Store
 
 # 版本 Version
+### v2.7 
+保存窗口的位置
+
+Save last position 
+
+### v2.6
+修正了不同DPI下的边框出界错误
+
+Fix form broader overflow problem when using diffirent DPI
 
 ### v2.5 
 终于搞定了三哥的UWP自启动API，MS商店发布的版本可以随系统启动（火绒剑都找不到的那种启动项）
