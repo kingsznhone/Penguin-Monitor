@@ -8,8 +8,6 @@ using System.Windows.Forms;
 
 namespace Penguin_Monitor
 {
-
-
     public partial class FloatWindow : Form
     {
         private const uint WS_EX_LAYERED = 0x80000;
@@ -49,8 +47,8 @@ namespace Penguin_Monitor
         public const int HTCAPTION = 0x0002;
 
 
-        Monitor M = new Monitor();
-
+        Monitor M;
+        
         bool PositionLock = false;
         bool isPenetrating = false;
 
@@ -59,16 +57,11 @@ namespace Penguin_Monitor
             DecideUILang();
             //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             InitializeComponent();
-            this.Opacity = Properties.Settings.Default.Opacity;
-
-            using (RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
-            {
-                if (null == rk.GetValue("PenguinMonitor", null)) toolStripMenuItemStartUp.Checked = false;
-            }
-
-            ReloadColor();
             if (!InitMonitor())
-                MessageBox.Show("连接网络后重试", "未检测到网络", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Retry after connect to internet", "No Network Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            this.Opacity = Properties.Settings.Default.Opacity;
+                ReloadColor();
         }
 
         private void DecideUILang()
@@ -112,8 +105,13 @@ namespace Penguin_Monitor
             }
             catch
             {
+                using (RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                {
+                    if (null == rk.GetValue("PenguinMonitor", null)) toolStripMenuItemStartUp.Checked = false;
+                }
                 MessageBox.Show("StartupTask Init Fail.");
             }
+
         }
 
         #region Hide On Top
@@ -136,14 +134,18 @@ namespace Penguin_Monitor
 
         private void FloatWindow_MouseLeave(object sender, EventArgs e)
         {
-            if (this.Top == 0)
+            if (ClientRectangle.Contains(PointToClient(MousePosition)))
+                return;
+            else
             {
-                for (int i = 85; i >= 5; i--)
+                if (Top == 0)
                 {
-                    this.Height = i;
+                    for (int i = 85; i >= 5; i--)
+                    {
+                        Height = i;
+                    }
                 }
             }
-
         }
 
         public void ManualScanNetwork(object sender, EventArgs e)
@@ -189,7 +191,7 @@ namespace Penguin_Monitor
                 OtherItems.Checked = false;
             }
             ThisItem.Checked = true;
-            M.StartMonitor(ThisItem.Text);
+            M.StartMonitorNetwork(ThisItem.Text);
         }
 
         private void DragWindow(object sender, MouseEventArgs e)
@@ -208,17 +210,18 @@ namespace Penguin_Monitor
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
         {
-            M.refresh();
-
-            RAMLB.Value = M.getRamUtil();
+            RAMLB.Value = M.getRamUsage();
             RAMLB.StackValue(RAMLB.Value);
             RAMLB.Text = "RAM " + RAMLB.Value + "%";
 
-
+            DownloadLB.StackValue(M.getDownSpeedRelative());
             DownloadLB.Text = "↓ " + M.getDownSpeed();
-            UploadLB.Text = "↑ " + M.getUpSpeed();
 
-            CPULB.Value = M.getCpuUtil();
+            UploadLB.StackValue(M.getUpSpeedRelative());
+            UploadLB.Text = "↑ " + M.getUpSpeed();
+            
+
+            CPULB.Value = M.getCpuUsage();
             CPULB.StackValue(CPULB.Value);
             CPULB.Text = "CPU " + CPULB.Value + "%";
 
@@ -259,6 +262,7 @@ namespace Penguin_Monitor
             SetLayeredWindowAttributes(this.Handle, 0, opacity, LWA_ALPHA);
         }
 
+        #region ToolStrip
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.notifyIcon1.Dispose();
@@ -300,12 +304,6 @@ namespace Penguin_Monitor
             
         }
 
-        private void toolStripMenuItemDonate_Click(object sender, EventArgs e)
-        {
-            Form donate = new DonateWnd();
-            donate.Show();
-        }
-
         private void toolStripMenuItemMod_Click(object sender, EventArgs e)
         {
             Modify mod = new Modify(this);
@@ -322,31 +320,47 @@ namespace Penguin_Monitor
         {
             ToolStripMenuItem i = (ToolStripMenuItem)sender;
 
-            //RegistryKey rk = Registry.CurrentUser.OpenSubKey
-            //("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-
-            var startupTask = await Windows.ApplicationModel.StartupTask.GetAsync("PenguinMonitorTask");
-
-            if (startupTask.State == Windows.ApplicationModel.StartupTaskState.Enabled)
+            try
             {
-                startupTask.Disable();
-                i.Checked = false;
-                //rk.DeleteValue("PenguinMonitor", false);
-                //MessageBox.Show("The task has been disabled");
-            }
-            else
-            {
-                var state = await startupTask.RequestEnableAsync();
-                switch (state)
+                var startupTask = await Windows.ApplicationModel.StartupTask.GetAsync("PenguinMonitorTask");
+
+                if (startupTask.State == Windows.ApplicationModel.StartupTaskState.Enabled)
                 {
-                    case Windows.ApplicationModel.StartupTaskState.DisabledByUser:
-                        i.Checked = false;
-                        //rk.DeleteValue("PenguinMonitor", false);
-                        break;
-                    case Windows.ApplicationModel.StartupTaskState.Enabled:
-                        i.Checked = true;
-                        //rk.SetValue("PenguinMonitor", Application.ExecutablePath);
-                        break;
+                    startupTask.Disable();
+                    i.Checked = false;
+                    //rk.DeleteValue("PenguinMonitor", false);
+                    //MessageBox.Show("The task has been disabled");
+                }
+                else
+                {
+                    var state = await startupTask.RequestEnableAsync();
+                    switch (state)
+                    {
+                        case Windows.ApplicationModel.StartupTaskState.DisabledByUser:
+                            i.Checked = false;
+                            //rk.DeleteValue("PenguinMonitor", false);
+                            break;
+                        case Windows.ApplicationModel.StartupTaskState.Enabled:
+                            i.Checked = true;
+                            //rk.SetValue("PenguinMonitor", Application.ExecutablePath);
+                            break;
+                    }
+                }
+            }
+            catch
+            {
+                using (RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                {
+                    if (i.Checked)
+                    {
+                        rk.DeleteValue("PenguinMonitor", false);
+                    }
+                    else
+                    {
+                        rk.SetValue("PenguinMonitor", Application.ExecutablePath);
+                    }
+                    if (null == rk.GetValue("PenguinMonitor", null)) i.Checked = false;
+                    else i.Checked = true;
                 }
             }
 
@@ -367,6 +381,8 @@ namespace Penguin_Monitor
             Visible = !Visible;
             toolStripMenuItemHide.Checked = !toolStripMenuItemHide.Checked;
         }
+
+        #endregion
 
         public void ReloadColor()
         {

@@ -18,7 +18,7 @@
       <Value Profile="(Default)">Red</Value>
     </Setting>
     <Setting Name="字体" Type="System.Drawing.Font" Scope="User">
-      <Value Profile="(Default)">Microsoft YaHei UI, 10.8pt</Value>
+      <Value Profile="(Default)">Microsoft YaHei UI, 9pt</Value>
     </Setting>
     <Setting Name="BackgroundColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Black</Value>

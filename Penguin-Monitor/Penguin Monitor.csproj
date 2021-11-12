@@ -24,13 +24,14 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.9.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -41,19 +42,35 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Monitor.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C03708F0DA815829077561417A4183F588CC5499</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Penguin Monitor_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -69,20 +86,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BGLabel.cs">
+    <Compile Include="AccentLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Cpu.cs" />
     <Compile Include="CustomOpacity.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomOpacity.Designer.cs">
       <DependentUpon>CustomOpacity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DonateWnd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DonateWnd.Designer.cs">
-      <DependentUpon>DonateWnd.cs</DependentUpon>
     </Compile>
     <Compile Include="Floatwindow.cs">
       <SubType>Form</SubType>
@@ -103,8 +115,10 @@
       <DependentUpon>Modify.cs</DependentUpon>
     </Compile>
     <Compile Include="Monitor.cs" />
+    <Compile Include="Network.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ram.cs" />
     <EmbeddedResource Include="CustomOpacity.en.resx">
       <DependentUpon>CustomOpacity.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,9 +127,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomOpacity.zh-CN.resx">
       <DependentUpon>CustomOpacity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DonateWnd.resx">
-      <DependentUpon>DonateWnd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Floatwindow.en.resx">
       <DependentUpon>Floatwindow.cs</DependentUpon>
@@ -155,6 +166,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
+    <None Include="Penguin Monitor_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

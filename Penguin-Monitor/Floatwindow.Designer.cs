@@ -45,13 +45,12 @@
             this.ToolStripMenuItemOCustom = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMod = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemStartUp = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemDonate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.RAMLB = new Penguin_Monitor.BGLabel();
-            this.CPULB = new Penguin_Monitor.BGLabel();
-            this.UploadLB = new Penguin_Monitor.BGLabel();
-            this.DownloadLB = new Penguin_Monitor.BGLabel();
+            this.RAMLB = new Penguin_Monitor.AccentLabel();
+            this.CPULB = new Penguin_Monitor.AccentLabel();
+            this.UploadLB = new Penguin_Monitor.AccentLabel();
+            this.DownloadLB = new Penguin_Monitor.AccentLabel();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +76,6 @@
             this.toolStripMenuItemOpacity,
             this.toolStripMenuItemMod,
             this.toolStripMenuItemStartUp,
-            this.toolStripMenuItemDonate,
             this.toolStripMenuItemInfo,
             this.exitToolStripMenuItemExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -155,12 +153,6 @@
             this.toolStripMenuItemStartUp.Name = "toolStripMenuItemStartUp";
             this.toolStripMenuItemStartUp.Click += new System.EventHandler(this.toolStripMenuItemStartUp_Click);
             // 
-            // toolStripMenuItemDonate
-            // 
-            resources.ApplyResources(this.toolStripMenuItemDonate, "toolStripMenuItemDonate");
-            this.toolStripMenuItemDonate.Name = "toolStripMenuItemDonate";
-            this.toolStripMenuItemDonate.Click += new System.EventHandler(this.toolStripMenuItemDonate_Click);
-            // 
             // toolStripMenuItemInfo
             // 
             resources.ApplyResources(this.toolStripMenuItemInfo, "toolStripMenuItemInfo");
@@ -180,6 +172,7 @@
             this.RAMLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
             this.RAMLB.Name = "RAMLB";
             this.RAMLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
+            this.RAMLB.MouseLeave += new System.EventHandler(this.FloatWindow_MouseLeave);
             // 
             // CPULB
             // 
@@ -188,6 +181,7 @@
             this.CPULB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
             this.CPULB.Name = "CPULB";
             this.CPULB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
+            this.CPULB.MouseLeave += new System.EventHandler(this.FloatWindow_MouseLeave);
             // 
             // UploadLB
             // 
@@ -196,6 +190,7 @@
             this.UploadLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
             this.UploadLB.Name = "UploadLB";
             this.UploadLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
+            this.UploadLB.MouseLeave += new System.EventHandler(this.FloatWindow_MouseLeave);
             // 
             // DownloadLB
             // 
@@ -204,6 +199,7 @@
             this.DownloadLB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(166)))));
             this.DownloadLB.Name = "DownloadLB";
             this.DownloadLB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragWindow);
+            this.DownloadLB.MouseLeave += new System.EventHandler(this.FloatWindow_MouseLeave);
             // 
             // FloatWindow
             // 
@@ -233,10 +229,10 @@
         }
 
         #endregion
-        private BGLabel DownloadLB;
-        private BGLabel UploadLB;
-        private BGLabel CPULB;
-        private BGLabel RAMLB;
+        private AccentLabel DownloadLB;
+        private AccentLabel UploadLB;
+        private AccentLabel CPULB;
+        private AccentLabel RAMLB;
         private System.Windows.Forms.Timer RefreshTimer;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -251,7 +247,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHide;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPene;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMod;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDonate;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStartUp;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemOCustom;
     }

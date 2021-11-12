@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Penguin_Monitor
@@ -8,9 +10,9 @@ namespace Penguin_Monitor
     {
         public FloatWindow parent;
 
-        PointF[] MergedArray;
-        PointF[] baseline;
-        PointF[] loadstack;
+        List<PointF> MergedArray;
+        List<PointF> baseline;
+        List<PointF> sampling;
         public Modify()
         {
             int[] CPUdata = { 10, 15, 48, 56, 4, 15, 2, 8, 15, 88, 98 };
@@ -32,6 +34,8 @@ namespace Penguin_Monitor
         {
             int[] CPUdata = { 10, 15, 48, 56, 4, 15, 2, 8, 15, 88, 98 };
             int[] RAMdata = { 20, 25, 30, 45, 22, 50, 50, 38, 31, 20, 33 };
+            int[] UpData = { 31, 35, 25, 46, 54, 55, 65, 36, 33, 42, 32 };
+            int[] DownData = { 56, 57, 59, 63, 74, 78, 76, 88, 92, 94, 98 };
             InitializeComponent();
 
             ReloadColor();
@@ -39,8 +43,16 @@ namespace Penguin_Monitor
             MakeData(CPUdata);
             CPULB.MergedArray = MergedArray;
             CPULB.Value = 100;
+
             MakeData(RAMdata);
             RAMLB.MergedArray = MergedArray;
+
+            MakeData(UpData);
+            UploadLB.MergedArray = MergedArray;
+
+            MakeData(DownData);
+            DownloadLB.MergedArray = MergedArray;
+
             this.Refresh();
             this.parent = parent;
         }
@@ -56,36 +68,46 @@ namespace Penguin_Monitor
 
         private void MakeData(int[] dataset)
         {
-            MergedArray = new PointF[13];
-            baseline = new PointF[2];
-            loadstack = new PointF[11];
+            MergedArray = new List<PointF>();
+            //2 point
+            baseline = new List<PointF>();
+            //11 point
+            sampling = new List<PointF>();
+            for (int i = 0; i < 11; i++)
+            {
+                sampling.Add(new PointF(0, 40));
+            }
             foreach (int data in dataset) StackValue(data);
-
         }
 
         private void CreateBaseline()
         {
-            PointF pointF = default;
-            pointF.Y = 40;
-            pointF.X = 0f;
-            baseline[0] = pointF;
-            pointF.X = 120;
-            baseline[1] = pointF;
+            baseline.Clear();
+            baseline.Add(new PointF(0, 40));
+            baseline.Add(new PointF(120, 40));
         }
 
         public void StackValue(int value)
         {
             CreateBaseline();
-            Array.Copy(loadstack, 0, loadstack, 1, loadstack.Length - 1);
-            for (int i = 0; i < loadstack.Length; i++)
-            {
-                loadstack[i].X = (float)(loadstack.Length - i - 1) * 120 / (loadstack.Length - 1f);
-            }
-            loadstack[0].Y = 40 - 40 * value / 100;
+            //Remove Last, Add a new point at head
+            sampling.RemoveAt(sampling.Count - 1);
+            PointF pNew = new PointF(0, 0);
+            pNew.X = 0;
+            pNew.Y = 40- 40 * value / 100;
+            sampling.Insert(0, pNew);
 
-            MergedArray = new PointF[loadstack.Length + baseline.Length];
-            Array.Copy(loadstack, 0, MergedArray, 0, loadstack.Length);
-            Array.Copy(baseline, 0, MergedArray, loadstack.Length, baseline.Length);
+            float X = 0f;
+            float Y = 0f;
+            //Move X
+            for (int i = 0; i < sampling.Count; i++)
+            {
+                Y = sampling[i].Y;
+                X = (sampling.Count - i - 1) * (float)120 / (sampling.Count - 1f);
+                PointF p = new PointF(X, Y);
+                sampling[i] = p;
+            }
+            MergedArray = sampling.Concat(baseline).ToList();
         }
 
         private void ModFontBtn_Click(object sender, EventArgs e)
@@ -187,7 +209,7 @@ namespace Penguin_Monitor
             Properties.Settings.Default.WarningColor = Color.Red;
             Properties.Settings.Default.ForeColor = Color.White;
             Properties.Settings.Default.BackgroundColor = Color.Black;
-            Properties.Settings.Default.字体 = new Font("Microsoft YaHei UI", 10.8f);
+            Properties.Settings.Default.字体 = new Font("Microsoft YaHei UI", 9f);
             Properties.Settings.Default.TopColor = Color.RoyalBlue;
             Properties.Settings.Default.Save();
             this.parent.ReloadColor();

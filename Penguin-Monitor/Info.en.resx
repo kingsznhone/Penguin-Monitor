@@ -140,7 +140,7 @@
     <value>12, 63</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>393, 27</value>
+    <value>291, 27</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Hide on the top of the screen</value>
@@ -1315,6 +1315,6 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Penguin Monitor v2.5</value>
+    <value>Penguin Monitor v2.9</value>
   </data>
 </root>

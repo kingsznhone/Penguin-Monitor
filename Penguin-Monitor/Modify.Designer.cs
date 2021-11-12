@@ -37,11 +37,11 @@
             this.BrushColorBtn = new System.Windows.Forms.Button();
             this.WarningColorBtn = new System.Windows.Forms.Button();
             this.BorderColorBtn = new System.Windows.Forms.Button();
-            this.TopLB = new Penguin_Monitor.BGLabel();
-            this.RAMLB = new Penguin_Monitor.BGLabel();
-            this.CPULB = new Penguin_Monitor.BGLabel();
-            this.UploadLB = new Penguin_Monitor.BGLabel();
-            this.DownloadLB = new Penguin_Monitor.BGLabel();
+            this.TopLB = new Penguin_Monitor.AccentLabel();
+            this.RAMLB = new Penguin_Monitor.AccentLabel();
+            this.CPULB = new Penguin_Monitor.AccentLabel();
+            this.UploadLB = new Penguin_Monitor.AccentLabel();
+            this.DownloadLB = new Penguin_Monitor.AccentLabel();
             this.BackgroundColorBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.DefaltBtn = new System.Windows.Forms.Button();
@@ -184,11 +184,11 @@
 
         #endregion
 
-        private BGLabel RAMLB;
-        private BGLabel CPULB;
-        private BGLabel UploadLB;
-        private BGLabel DownloadLB;
-        private BGLabel TopLB;
+        private AccentLabel RAMLB;
+        private AccentLabel CPULB;
+        private AccentLabel UploadLB;
+        private AccentLabel DownloadLB;
+        private AccentLabel TopLB;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.Button ModFontBtn;

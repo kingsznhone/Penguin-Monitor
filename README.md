@@ -8,6 +8,15 @@ Penguin Monitor is a floating window for monitoring system resources
 Sale on Microsoft Store
 
 # 版本 Version
+### v2.9
+增加了网速背景的曲线，代码优化
+
+自编译版本可以设置自启动
+
+Add Curves behide Network Speed. Code optimize.
+
+Free version can set startup now
+
 ### v2.7 
 保存窗口的位置
 
